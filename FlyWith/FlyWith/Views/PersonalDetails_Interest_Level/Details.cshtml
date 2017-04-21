@@ -1,0 +1,42 @@
+﻿@model FlyWith.Models.PersonalDetails_Interest_Level
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PersonalDetails_Interest_Level</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Interest.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Interest.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Level.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Level.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonalDetails.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonalDetails.FirstName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

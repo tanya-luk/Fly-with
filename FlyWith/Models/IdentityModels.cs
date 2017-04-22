@@ -40,5 +40,27 @@ namespace FlyWith.Models
         public System.Data.Entity.DbSet<FlyWith.Models.Interest> Interests { get; set; }
 
         public System.Data.Entity.DbSet<FlyWith.Models.Level> Levels { get; set; }
+
+        public System.Data.Entity.DbSet<FlyWith.Models.Language> Languages { get; set; }
+
+        public System.Data.Entity.DbSet<FlyWith.Models.LanguageLevel> LanguageLevels { get; set; }
+
+        public System.Data.Entity.DbSet<FlyWith.Models.PesonalDetail_DoInFlight_YesNoAnswer> PesonalDetail_DoInFlight_YesNoAnswer { get; set; }
+
+        public System.Data.Entity.DbSet<FlyWith.Models.DoInFlight> DoInFlights { get; set; }
+
+        public System.Data.Entity.DbSet<FlyWith.Models.YesNoAnswer> YesNoAnswers { get; set; }
+
+        public System.Data.Entity.DbSet<FlyWith.Models.Country> Countries { get; set; }
+
+        public System.Data.Entity.DbSet<FlyWith.Models.Sex> Sexes { get; set; }
+
+        public System.Data.Entity.DbSet<FlyWith.Models.InterestGroup> InterestGroups { get; set; }
+
+        public System.Data.Entity.DbSet<FlyWith.Models.Dating> Datings { get; set; }
+
+        public System.Data.Entity.DbSet<FlyWith.Models.SeatingPosition> SeatingPositions { get; set; }
+
+        public System.Data.Entity.DbSet<FlyWith.Models.PersonalDetails_SeatingPosition_YesNOAnswer> PersonalDetails_SeatingPosition_YesNOAnswer { get; set; }
     }
 }

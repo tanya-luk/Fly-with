@@ -1,0 +1,42 @@
+﻿@model FlyWith.Models.PersonalDetails_Language_LanguageLevel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PersonalDetails_Language_LanguageLevel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Language.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Language.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LanguageLevel.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LanguageLevel.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonalDetails.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonalDetails.FirstName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,11 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FlyWith.Models
 {
     public class PersonalDetails
     {
         public int PersonalDetailsID { get; set;}
+        [StringLength(128), MinLength(3)]
+        [ForeignKey("AspNetUser")]
+        public virtual string AspNetUserId { get; set; }
+
+
+        public ApplicationUser AspNetUser { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime Birthday { get; set; }
@@ -27,5 +35,8 @@ namespace FlyWith.Models
 
         //Interests
         public virtual ICollection<PersonalDetails_Interest_Level> PersonalDetails_Interest_Levels { get; set; }
+
+        //Do in Flight
+        public virtual ICollection<PesonalDetail_DoInFlight_YesNoAnswer> PesonalDetail_DoInFlight_YesNoAnswers { get; set; }
     }
 }

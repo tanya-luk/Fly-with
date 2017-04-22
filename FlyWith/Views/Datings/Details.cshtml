@@ -1,0 +1,50 @@
+﻿@model FlyWith.Models.Dating
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Dating</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonalDetails.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonalDetails.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sex.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sex.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FromAge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FromAge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ToAge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ToAge)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PersonalDetailsID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

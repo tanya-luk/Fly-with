@@ -1,0 +1,42 @@
+﻿@model FlyWith.Models.PesonalDetail_DoInFlight_YesNoAnswer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PesonalDetail_DoInFlight_YesNoAnswer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DoInFlight.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DoInFlight.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonalDetails.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonalDetails.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YesNoAnswer.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YesNoAnswer.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

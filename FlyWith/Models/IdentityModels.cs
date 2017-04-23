@@ -62,5 +62,7 @@ namespace FlyWith.Models
         public System.Data.Entity.DbSet<FlyWith.Models.SeatingPosition> SeatingPositions { get; set; }
 
         public System.Data.Entity.DbSet<FlyWith.Models.PersonalDetails_SeatingPosition_YesNOAnswer> PersonalDetails_SeatingPosition_YesNOAnswer { get; set; }
+
+        public System.Data.Entity.DbSet<FlyWith.Models.Occupation> Occupations { get; set; }
     }
 }

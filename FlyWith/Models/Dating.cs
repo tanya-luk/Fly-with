@@ -7,9 +7,15 @@ namespace FlyWith.Models
 {
     public class Dating
     {
+        //variables of the dating table
+        [Display(Name = "From age")]
         public int FromAge { get; set; }
+
+        [Display(Name = "To Age")]
         public int ToAge { get; set; }
         public int SexID { get; set; }
+
+        //the private and foreigien keys
         public virtual Sex Sex { get; set; }
         [Key, ForeignKey("PersonalDetails")]
         public int PersonalDetailsID { get; set; }

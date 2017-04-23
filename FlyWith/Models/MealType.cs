@@ -7,6 +7,8 @@ namespace FlyWith.Models
     public class MealType
     {
         public int MealTypeID { get; set; }
+
+        [Display(Name = "Meal type name")]
         public string Name { get; set; }
         public virtual ICollection<PersonalDetails> PersonalDetails { get; set; }
     }

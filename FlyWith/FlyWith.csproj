@@ -18,7 +18,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>44382</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -362,11 +362,6 @@
     <Content Include="Views\DoInFlights\Details.cshtml" />
     <Content Include="Views\DoInFlights\Edit.cshtml" />
     <Content Include="Views\DoInFlights\Index.cshtml" />
-    <Content Include="Views\PersonalDetails\Create.cshtml" />
-    <Content Include="Views\PersonalDetails\Delete.cshtml" />
-    <Content Include="Views\PersonalDetails\Details.cshtml" />
-    <Content Include="Views\PersonalDetails\Edit.cshtml" />
-    <Content Include="Views\PersonalDetails\Index.cshtml" />
     <Content Include="Views\Interests\Create.cshtml" />
     <Content Include="Views\Interests\Delete.cshtml" />
     <Content Include="Views\Interests\Details.cshtml" />
@@ -402,6 +397,11 @@
     <Content Include="Views\Occupations\Details.cshtml" />
     <Content Include="Views\Occupations\Edit.cshtml" />
     <Content Include="Views\Occupations\Index.cshtml" />
+    <Content Include="Views\PersonalDetails\Create.cshtml" />
+    <Content Include="Views\PersonalDetails\Delete.cshtml" />
+    <Content Include="Views\PersonalDetails\Details.cshtml" />
+    <Content Include="Views\PersonalDetails\Edit.cshtml" />
+    <Content Include="Views\PersonalDetails\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -432,7 +432,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>49737</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:49737/</IISUrl>
+          <IISUrl>https://localhost:44382/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

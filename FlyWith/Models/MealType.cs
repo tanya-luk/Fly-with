@@ -8,7 +8,7 @@ namespace FlyWith.Models
     {
         public int MealTypeID { get; set; }
 
-        [Display(Name = "Meal type name")]
+        [Display(Name = "Meal type")]
         public string Name { get; set; }
         public virtual ICollection<PersonalDetails> PersonalDetails { get; set; }
     }

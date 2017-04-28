@@ -7,7 +7,7 @@ namespace FlyWith.Models
     {
         public int InterestGroupID { get; set; }
 
-        [Display(Name = "Group Interest Name")]
+        [Display(Name = "The group of the Interest")]
         public string Name { get; set; }
 
         public virtual ICollection<Interest> Interest { get; set; }

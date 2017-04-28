@@ -14,6 +14,7 @@ namespace FlyWith.Models
             [ForeignKey("PersonalDetailsID")]
             public virtual PersonalDetails PersonalDetails { get; set; }
 
+            [Display(Name = "Last Name")]
             [Key Column(Order = 1)]
             public int SeatingPositionID { get; set; }
             [ForeignKey("SeatingPositionID")]

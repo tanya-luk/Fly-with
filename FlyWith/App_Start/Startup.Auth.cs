@@ -54,9 +54,9 @@ namespace FlyWith
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "1802366550081116",
+               appSecret: "0d829bc5a8e12f3cdceef92430437989");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{

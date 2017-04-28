@@ -13,9 +13,10 @@ namespace FlyWith.Models
 
         [Display(Name = "To Age")]
         public int ToAge { get; set; }
-        public int SexID { get; set; }
 
         //the private and foreigien keys
+        [Display(Name = "Sex")]
+        public int SexID { get; set; }
         public virtual Sex Sex { get; set; }
         [Key, ForeignKey("PersonalDetails")]
         public int PersonalDetailsID { get; set; }

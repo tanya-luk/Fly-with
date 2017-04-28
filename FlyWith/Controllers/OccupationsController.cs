@@ -46,7 +46,7 @@ namespace FlyWith.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "OccupationId")] Occupation occupation)
+        public ActionResult Create([Bind(Include = "OccupationID,Name")] Occupation occupation)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace FlyWith.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "OccupationId")] Occupation occupation)
+        public ActionResult Edit([Bind(Include = "OccupationID,Name")] Occupation occupation)
         {
             if (ModelState.IsValid)
             {

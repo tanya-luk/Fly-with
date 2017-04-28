@@ -7,7 +7,7 @@ namespace FlyWith.Models
     {
         
         public int CountryID { get; set; }
-        [Display(Name = "Country name")]
+        [Display(Name = "Country")]
         public string Name { get; set; }
 
         //foregein key

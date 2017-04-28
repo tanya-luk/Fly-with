@@ -7,7 +7,7 @@ namespace FlyWith.Models
     {
         public int LevelID { get; set; }
 
-        [Display(Name = "Level name")]
+        [Display(Name = "Level")]
         public string Name { get; set; }
     }
 }

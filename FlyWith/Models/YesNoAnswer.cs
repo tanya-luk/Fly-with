@@ -7,7 +7,7 @@ namespace FlyWith.Models
     {
         public int YesNoAnswerID { get; set; }
 
-        [Display(Name = "Yes or no answer name")]
+        [Display(Name = "Yes or no answer")]
         public string Name { get; set; }
         public virtual ICollection<PersonalDetails> PersonalDetails { get; set; }
     }

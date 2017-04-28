@@ -2,6 +2,7 @@
 
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FlyWith.Models
 {
@@ -9,11 +10,12 @@ namespace FlyWith.Models
     {
         public int InterestID { get; set; }
 
-        [Display(Name = "Interest name")]
+        [Display(Name = "Interest")]
         public string Name { get; set; }
 
         //foregien keys
         //each interest in witch group 
+        [Display(Name = "Group of the interest")]
         public int InterestGroupID { get; set; }
         public virtual InterestGroup InterestGroup { get; set; }
 

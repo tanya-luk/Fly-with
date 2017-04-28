@@ -17,7 +17,7 @@ namespace FlyWith.Controllers
         // GET: PersonalDetails
         public ActionResult Index()
         {
-            var personalDetails = db.PersonalDetails.Include(p => p.Country).Include(p => p.MealType).Include(p => p.Sex);
+            var personalDetails = db.PersonalDetails.Include(p => p.Country).Include(p => p.MealType).Include(p => p.Occupation).Include(p => p.Sex);
             return View(personalDetails.ToList());
         }
 
@@ -41,6 +41,7 @@ namespace FlyWith.Controllers
         {
             ViewBag.CountryID = new SelectList(db.Countries, "CountryID", "Name");
             ViewBag.MealTypeID = new SelectList(db.MealTypes, "MealTypeID", "Name");
+            ViewBag.OccupationID = new SelectList(db.Occupations, "OccupationID", "Name");
             ViewBag.SexID = new SelectList(db.Sexes, "SexID", "Name");
             return View();
         }
@@ -50,7 +51,7 @@ namespace FlyWith.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PersonalDetailsID,FirstName,LastName,Birthday,MealTypeID,CountryID,SexID")] PersonalDetails personalDetails)
+        public ActionResult Create([Bind(Include = "PersonalDetailsID,FirstName,LastName,Birthday,MealTypeID,CountryID,SexID,OccupationID")] PersonalDetails personalDetails)
         {
             if (ModelState.IsValid)
             {
@@ -61,6 +62,7 @@ namespace FlyWith.Controllers
 
             ViewBag.CountryID = new SelectList(db.Countries, "CountryID", "Name", personalDetails.CountryID);
             ViewBag.MealTypeID = new SelectList(db.MealTypes, "MealTypeID", "Name", personalDetails.MealTypeID);
+            ViewBag.OccupationID = new SelectList(db.Occupations, "OccupationID", "Name", personalDetails.OccupationID);
             ViewBag.SexID = new SelectList(db.Sexes, "SexID", "Name", personalDetails.SexID);
             return View(personalDetails);
         }
@@ -79,6 +81,7 @@ namespace FlyWith.Controllers
             }
             ViewBag.CountryID = new SelectList(db.Countries, "CountryID", "Name", personalDetails.CountryID);
             ViewBag.MealTypeID = new SelectList(db.MealTypes, "MealTypeID", "Name", personalDetails.MealTypeID);
+            ViewBag.OccupationID = new SelectList(db.Occupations, "OccupationID", "Name", personalDetails.OccupationID);
             ViewBag.SexID = new SelectList(db.Sexes, "SexID", "Name", personalDetails.SexID);
             return View(personalDetails);
         }
@@ -88,7 +91,7 @@ namespace FlyWith.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PersonalDetailsID,FirstName,LastName,Birthday,MealTypeID,CountryID,SexID")] PersonalDetails personalDetails)
+        public ActionResult Edit([Bind(Include = "PersonalDetailsID,FirstName,LastName,Birthday,MealTypeID,CountryID,SexID,OccupationID")] PersonalDetails personalDetails)
         {
             if (ModelState.IsValid)
             {
@@ -98,6 +101,7 @@ namespace FlyWith.Controllers
             }
             ViewBag.CountryID = new SelectList(db.Countries, "CountryID", "Name", personalDetails.CountryID);
             ViewBag.MealTypeID = new SelectList(db.MealTypes, "MealTypeID", "Name", personalDetails.MealTypeID);
+            ViewBag.OccupationID = new SelectList(db.Occupations, "OccupationID", "Name", personalDetails.OccupationID);
             ViewBag.SexID = new SelectList(db.Sexes, "SexID", "Name", personalDetails.SexID);
             return View(personalDetails);
         }

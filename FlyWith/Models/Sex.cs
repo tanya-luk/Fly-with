@@ -7,7 +7,7 @@ namespace FlyWith.Models
     {
         public int SexID { get; set; }
 
-        [Display(Name = "Sex name")]
+        [Display(Name = "Sex")]
         public string Name { get; set; }
         public virtual ICollection<PersonalDetails> PersonalDetails { get; set; }
     }

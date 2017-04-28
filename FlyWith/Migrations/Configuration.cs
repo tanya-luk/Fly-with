@@ -249,7 +249,7 @@ namespace FlyWith.Migrations
               new DoInFlight { Name = "Silence" }
             
               );
-            context.InterestGroups.AddOrUpdate(i=>i.Name,
+            context.InterestGroups.AddOrUpdate(b=>b.Name,
                 
                 new InterestGroup { Name = "Arts" },
                 new InterestGroup { Name = "Performances" },
@@ -262,8 +262,8 @@ namespace FlyWith.Migrations
                 new InterestGroup { Name = "Religion" },
                 new InterestGroup { Name = "Sport" },
                 new InterestGroup { Name = "Travel" },
-                new InterestGroup { Name = "News" }
-                
+                new InterestGroup { Name = "News" },
+                new InterestGroup { Name = "Science" }
               );
 
             context.LanguageLevels.AddOrUpdate(l => l.Name,
@@ -332,7 +332,206 @@ namespace FlyWith.Migrations
 
                 );
 
+            context.Languages.AddOrUpdate(l => l.Name,
 
+                new Language { Name = "Afrikaans"},
+                new Language { Name = "Albanian" },
+                new Language { Name = "Amharic" },
+                new Language { Name = "Arabic" },
+                new Language { Name = "Armenian" },
+                new Language { Name = "Basque" },
+                new Language { Name = "Bengali" },
+                new Language { Name = "Byelorussian" },
+                new Language { Name = "Burmese" },
+                new Language { Name = "Bulgarian" },
+                new Language { Name = "Catalan" },
+                new Language { Name = "Czech" },
+                new Language { Name = "Chinese" },
+                new Language { Name = "Croatian" },
+                new Language { Name = "Danish" },
+                new Language { Name = "Dari" },
+                new Language { Name = "Dzongkha" },
+                new Language { Name = "Dutch" },
+                new Language { Name = "English" },
+                new Language { Name = "Esperanto" },
+                new Language { Name = "Estonian" },
+                new Language { Name = "Faroese" },
+                new Language { Name = "Farsi" },
+                new Language { Name = "Finnish" },
+                new Language { Name = "French" },
+                new Language { Name = "Gaelic" },
+                new Language { Name = "Galician" },
+                new Language { Name = "German" },
+                new Language { Name = "Greek" },
+                new Language { Name = "Hebrew" },
+                new Language { Name = "Hindi" },
+                new Language { Name = "Hungarian" },
+                new Language { Name = "Icelandic" },
+                new Language { Name = "Indonesian" },
+                new Language { Name = "Inuktitut (Eskimo)" },
+                new Language { Name = "Italian" },
+                new Language { Name = "Japanese" },
+                new Language { Name = "Khmer" },
+                new Language { Name = "Korean" },
+                new Language { Name = "Kurdish" },
+                new Language { Name = "Laotian" },
+                new Language { Name = "Latvian" },
+                new Language { Name = "Lappish" },
+                new Language { Name = "Lithuanian" },
+                new Language { Name = "Macedonian" },
+                new Language { Name = "Malay" },
+                new Language { Name = "Maltese" },
+                new Language { Name = "Nepali" },
+                new Language { Name = "Norwegian" },
+                new Language { Name = "Pashto" },
+                new Language { Name = "Polish" },
+                new Language { Name = "Portuguese" },
+                new Language { Name = "Romanian" },
+                new Language { Name = "Russian" },
+                new Language { Name = "Scots" },
+                new Language { Name = "Serbian" },
+                new Language { Name = "Slovak" },
+                new Language { Name = "Slovenian" },
+                new Language { Name = "Somali" },
+                new Language { Name = "Spanish" },
+                new Language { Name = "Swedish" },
+                new Language { Name = "Swahili	" },
+                new Language { Name = "Tagalog-Filipino" },
+                new Language { Name = "Tajik" },
+                new Language { Name = "Tamil" },
+                new Language { Name = "Thai" },
+                new Language { Name = "Tibetan" },
+                new Language { Name = "Tigrinya" },
+                new Language { Name = "Tongan" },
+                new Language { Name = "Turkish" },
+                new Language { Name = "Turkmen" },
+                new Language { Name = "Ucrainian" },
+                new Language { Name = "Urdu" },
+                new Language { Name = "Uzbek" },
+                new Language { Name = "Vietnamese" },
+                new Language { Name = "Welsh" }
+                
+                );
+
+            context.Interests.AddOrUpdate( i=> new { i.Name, i.InterestGroupID }, 
+                
+                //arts group
+                new Interest { Name = "Architecture", InterestGroupID = 1 },
+                new Interest { Name = "Conceptual", InterestGroupID = 1 },
+                new Interest { Name = "Crafts", InterestGroupID = 1 },
+                new Interest { Name = "Drawing", InterestGroupID = 1 },
+                new Interest { Name = "Painting", InterestGroupID = 1 },
+                new Interest { Name = "Photography", InterestGroupID = 1 },
+                new Interest { Name = "Sculpture", InterestGroupID = 1 },
+
+                //fashion group
+                new Interest { Name = "Accessories", InterestGroupID = 2 },
+                new Interest { Name = "Clothing", InterestGroupID = 2 },
+                new Interest { Name = "Footwear", InterestGroupID = 2 },
+                new Interest { Name = "Home", InterestGroupID = 2 },
+
+                //Performances group
+                new Interest { Name = "Ballet", InterestGroupID = 3 },
+                new Interest { Name = "Circus", InterestGroupID = 3 },
+                new Interest { Name = "Concert", InterestGroupID = 3 },
+                new Interest { Name = "Dance", InterestGroupID = 3 },
+                new Interest { Name = "Opera", InterestGroupID = 3 },
+                new Interest { Name = "Standup", InterestGroupID = 3 },
+                new Interest { Name = "Theater", InterestGroupID = 3 },
+
+                //reading group
+                new Interest { Name = "Dance", InterestGroupID = 4 },
+                new Interest { Name = "Drama", InterestGroupID = 4 },
+                new Interest { Name = "Essays", InterestGroupID = 4 },
+                new Interest { Name = "Magazines", InterestGroupID = 4 },
+                new Interest { Name = "Newspapers", InterestGroupID = 4 },
+                new Interest { Name = "Novels", InterestGroupID = 4 },
+                new Interest { Name = "Poetry", InterestGroupID = 4 },
+                new Interest { Name = "Shortstories", InterestGroupID = 4 },
+
+                //food group
+                new Interest { Name = "Cooking", InterestGroupID = 5 },
+                new Interest { Name = "Eating out", InterestGroupID = 5 },
+
+                //games group
+                new Interest { Name = "Board", InterestGroupID = 6 },
+                new Interest { Name = "Electronic", InterestGroupID = 6 },
+                new Interest { Name = "Outdoor", InterestGroupID = 6 },
+
+                //movies group
+                new Interest { Name = "Action", InterestGroupID = 7 },
+                new Interest { Name = "Animation", InterestGroupID = 7 },
+                new Interest { Name = "Comedy", InterestGroupID = 7 },
+                new Interest { Name = "Documentary", InterestGroupID = 7 },
+                new Interest { Name = "Drama", InterestGroupID = 7 },
+                new Interest { Name = "Scifi", InterestGroupID = 7 },
+
+                //music group
+                new Interest { Name = "Blues", InterestGroupID = 8 },
+                new Interest { Name = "Classical", InterestGroupID = 8 },
+                new Interest { Name = "Country", InterestGroupID = 8 },
+                new Interest { Name = "Dance", InterestGroupID = 8 },
+                new Interest { Name = "Drama", InterestGroupID = 8 },
+                new Interest { Name = "Electronic", InterestGroupID = 8 },
+                new Interest { Name = "Indie", InterestGroupID = 8 },
+                new Interest { Name = "Jazz", InterestGroupID = 8 },
+                new Interest { Name = "Pop", InterestGroupID = 8 },
+                new Interest { Name = "RnB", InterestGroupID = 8 },
+                new Interest { Name = "Rock", InterestGroupID = 8 },
+
+                //religion group
+                new Interest { Name = "Services", InterestGroupID = 9 },
+                new Interest { Name = "Study", InterestGroupID = 9 },
+
+                //sport group
+                new Interest { Name = "Athletics", InterestGroupID = 10 },
+                new Interest { Name = "Basketball", InterestGroupID = 10 },
+                new Interest { Name = "Boating", InterestGroupID = 10 },
+                new Interest { Name = "Climbing", InterestGroupID = 10 },
+                new Interest { Name = "Diving", InterestGroupID = 10 },
+                new Interest { Name = "Extreme", InterestGroupID = 10 },
+                new Interest { Name = "Football", InterestGroupID = 10 },
+                new Interest { Name = "Golf", InterestGroupID = 10 },
+                new Interest { Name = "Hiking", InterestGroupID = 10 },
+                new Interest { Name = "Hockey", InterestGroupID = 10 },
+                new Interest { Name = "Martial", InterestGroupID = 10 },
+                new Interest { Name = "Rugby", InterestGroupID = 10 },
+                new Interest { Name = "Running", InterestGroupID = 10 },
+                new Interest { Name = "Skating", InterestGroupID = 10 },
+                new Interest { Name = "Ski", InterestGroupID = 10 },
+                new Interest { Name = "Surfing", InterestGroupID = 10 },
+                new Interest { Name = "Swimming", InterestGroupID = 10 },
+                new Interest { Name = "Volleyball", InterestGroupID = 10 },
+                new Interest { Name = "Weightlifting", InterestGroupID = 10 },
+
+                //travel group
+                new Interest { Name = "Beach", InterestGroupID = 11 },
+                new Interest { Name = "Cities", InterestGroupID = 11 },
+                new Interest { Name = "Countryside", InterestGroupID = 11 },
+                new Interest { Name = "Cruise", InterestGroupID = 11 },
+                new Interest { Name = "Hiking", InterestGroupID = 11 }, 
+                new Interest { Name = "Monuments", InterestGroupID = 11 },
+                new Interest { Name = "Mountain", InterestGroupID = 11 },
+                new Interest { Name = "Museums", InterestGroupID = 11 },
+
+                //news group
+                new Interest { Name = "Economy", InterestGroupID = 12 },
+                new Interest { Name = "Health", InterestGroupID = 12 },
+                new Interest { Name = "Hi-tech", InterestGroupID = 12 },
+                new Interest { Name = "International", InterestGroupID = 12 },
+                new Interest { Name = "Politics", InterestGroupID = 12 },
+                new Interest { Name = "Social Networks", InterestGroupID = 12 },
+
+                //Science group
+                new Interest { Name = "Astronomy", InterestGroupID = 13 },
+                new Interest { Name = "Biology", InterestGroupID = 13 },
+                new Interest { Name = "Chemistry", InterestGroupID = 13 },
+                new Interest { Name = "Computer", InterestGroupID = 13 },
+                new Interest { Name = "Math", InterestGroupID = 13 },
+                new Interest { Name = "Medicine", InterestGroupID = 13 },
+                new Interest { Name = "Physics", InterestGroupID = 13 }
+
+                );
         }
     }
 }

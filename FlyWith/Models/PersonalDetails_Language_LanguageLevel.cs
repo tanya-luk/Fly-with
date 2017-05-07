@@ -7,12 +7,12 @@ namespace FlyWith.Models
 {
     public class PersonalDetails_Language_LanguageLevel
     {
-        [Key Column(Order = 0)]
+        [Key, Column(Order = 0)]
         public int PersonalDetailsID { get; set; }
         [ForeignKey("PersonalDetailsID")]
         public virtual PersonalDetails PersonalDetails { get; set; }
 
-        [Key Column(Order = 1)]
+        [Key, Column(Order = 1)]
         public int LanguageID { get; set; }
         [ForeignKey("LanguageID")]
         public virtual Language Language { get; set; }

@@ -9,6 +9,5 @@ namespace FlyWith.Models
 
         [Display(Name = "Yes or no answer")]
         public string Name { get; set; }
-        public virtual ICollection<PersonalDetails> PersonalDetails { get; set; }
     }
 }

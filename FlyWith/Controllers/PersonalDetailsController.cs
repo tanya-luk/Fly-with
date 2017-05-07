@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using FlyWith.Models;
+using Microsoft.AspNet.Identity;
 
 namespace FlyWith.Controllers
 {
@@ -17,8 +14,14 @@ namespace FlyWith.Controllers
         // GET: PersonalDetails
         public ActionResult Index()
         {
-            var personalDetails = db.PersonalDetails.Include(p => p.Country).Include(p => p.MealType).Include(p => p.Occupation).Include(p => p.Sex);
-            return View(personalDetails.ToList());
+            string currentUserId = User.Identity.GetUserId();
+            ApplicationUser currentUser = db.Users.FirstOrDefault(x => x.Id == currentUserId);
+            var person = db.PersonalDetails.FirstOrDefault(e => (e.AspNetUserId.Equals(currentUserId)));
+            if (person != null)
+                return Redirect("PersonalDetails/Details/" + person.PersonalDetailsID);
+            return Redirect("Home");
+            //var personalDetails = db.PersonalDetails.Include(p => p.AspNetUser).Include(p => p.Country).Include(p => p.MealType).Include(p => p.Occupation).Include(p => p.Sex);
+            //return View(personalDetails.ToList());
         }
 
         // GET: PersonalDetails/Details/5
@@ -39,6 +42,7 @@ namespace FlyWith.Controllers
         // GET: PersonalDetails/Create
         public ActionResult Create()
         {
+            //ViewBag.AspNetUserId = new SelectList(db.ApplicationUsers, "Id", "Email");
             ViewBag.CountryID = new SelectList(db.Countries, "CountryID", "Name");
             ViewBag.MealTypeID = new SelectList(db.MealTypes, "MealTypeID", "Name");
             ViewBag.OccupationID = new SelectList(db.Occupations, "OccupationID", "Name");
@@ -51,15 +55,17 @@ namespace FlyWith.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PersonalDetailsID,FirstName,LastName,Birthday,MealTypeID,CountryID,SexID,OccupationID")] PersonalDetails personalDetails)
+        public ActionResult Create([Bind(Include = "PersonalDetailsID,AspNetUserId,FirstName,LastName,Birthday,MealTypeID,CountryID,SexID,OccupationID")] PersonalDetails personalDetails)
         {
             if (ModelState.IsValid)
             {
+                personalDetails.AspNetUserId = User.Identity.GetUserId();
                 db.PersonalDetails.Add(personalDetails);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
+            //ViewBag.AspNetUserId = new SelectList(db.ApplicationUsers, "Id", "Email", personalDetails.AspNetUserId);
             ViewBag.CountryID = new SelectList(db.Countries, "CountryID", "Name", personalDetails.CountryID);
             ViewBag.MealTypeID = new SelectList(db.MealTypes, "MealTypeID", "Name", personalDetails.MealTypeID);
             ViewBag.OccupationID = new SelectList(db.Occupations, "OccupationID", "Name", personalDetails.OccupationID);
@@ -79,6 +85,7 @@ namespace FlyWith.Controllers
             {
                 return HttpNotFound();
             }
+            //ViewBag.AspNetUserId = new SelectList(db.ApplicationUsers, "Id", "Email", personalDetails.AspNetUserId);
             ViewBag.CountryID = new SelectList(db.Countries, "CountryID", "Name", personalDetails.CountryID);
             ViewBag.MealTypeID = new SelectList(db.MealTypes, "MealTypeID", "Name", personalDetails.MealTypeID);
             ViewBag.OccupationID = new SelectList(db.Occupations, "OccupationID", "Name", personalDetails.OccupationID);
@@ -91,7 +98,7 @@ namespace FlyWith.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PersonalDetailsID,FirstName,LastName,Birthday,MealTypeID,CountryID,SexID,OccupationID")] PersonalDetails personalDetails)
+        public ActionResult Edit([Bind(Include = "PersonalDetailsID,AspNetUserId,FirstName,LastName,Birthday,MealTypeID,CountryID,SexID,OccupationID")] PersonalDetails personalDetails)
         {
             if (ModelState.IsValid)
             {
@@ -99,6 +106,7 @@ namespace FlyWith.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            //ViewBag.AspNetUserId = new SelectList(db.ApplicationUsers, "Id", "Email", personalDetails.AspNetUserId);
             ViewBag.CountryID = new SelectList(db.Countries, "CountryID", "Name", personalDetails.CountryID);
             ViewBag.MealTypeID = new SelectList(db.MealTypes, "MealTypeID", "Name", personalDetails.MealTypeID);
             ViewBag.OccupationID = new SelectList(db.Occupations, "OccupationID", "Name", personalDetails.OccupationID);

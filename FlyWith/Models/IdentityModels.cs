@@ -30,39 +30,39 @@ namespace FlyWith.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<FlyWith.Models.PersonalDetails> PersonalDetails { get; set; }
+        public DbSet<FlyWith.Models.PersonalDetails> PersonalDetails { get; set; }
 
-        public System.Data.Entity.DbSet<FlyWith.Models.MealType> MealTypes { get; set; }
-        public System.Data.Entity.DbSet<FlyWith.Models.PersonalDetails_Language_LanguageLevel> PersonalDetails_Language_LanguageLevel { get; set; }
+        public DbSet<FlyWith.Models.MealType> MealTypes { get; set; }
+        public DbSet<FlyWith.Models.PersonalDetails_Language_LanguageLevel> PersonalDetails_Language_LanguageLevel { get; set; }
 
-        public System.Data.Entity.DbSet<FlyWith.Models.PersonalDetails_Interest_Level> PersonalDetails_Interest_Level { get; set; }
+        public DbSet<FlyWith.Models.PersonalDetails_Interest_Level> PersonalDetails_Interest_Level { get; set; }
 
-        public System.Data.Entity.DbSet<FlyWith.Models.Interest> Interests { get; set; }
+        public DbSet<FlyWith.Models.Interest> Interests { get; set; }
 
-        public System.Data.Entity.DbSet<FlyWith.Models.Level> Levels { get; set; }
+        public DbSet<FlyWith.Models.Level> Levels { get; set; }
 
-        public System.Data.Entity.DbSet<FlyWith.Models.Language> Languages { get; set; }
+        public DbSet<FlyWith.Models.Language> Languages { get; set; }
 
-        public System.Data.Entity.DbSet<FlyWith.Models.LanguageLevel> LanguageLevels { get; set; }
+        public DbSet<FlyWith.Models.LanguageLevel> LanguageLevels { get; set; }
 
-        public System.Data.Entity.DbSet<FlyWith.Models.PesonalDetail_DoInFlight_YesNoAnswer> PesonalDetail_DoInFlight_YesNoAnswer { get; set; }
+        public DbSet<FlyWith.Models.PesonalDetail_DoInFlight_YesNoAnswer> PesonalDetail_DoInFlight_YesNoAnswer { get; set; }
 
-        public System.Data.Entity.DbSet<FlyWith.Models.DoInFlight> DoInFlights { get; set; }
+        public DbSet<FlyWith.Models.DoInFlight> DoInFlights { get; set; }
 
-        public System.Data.Entity.DbSet<FlyWith.Models.YesNoAnswer> YesNoAnswers { get; set; }
+        public DbSet<FlyWith.Models.YesNoAnswer> YesNoAnswers { get; set; }
 
-        public System.Data.Entity.DbSet<FlyWith.Models.Country> Countries { get; set; }
+        public DbSet<FlyWith.Models.Country> Countries { get; set; }
 
-        public System.Data.Entity.DbSet<FlyWith.Models.Sex> Sexes { get; set; }
+        public DbSet<FlyWith.Models.Sex> Sexes { get; set; }
 
-        public System.Data.Entity.DbSet<FlyWith.Models.InterestGroup> InterestGroups { get; set; }
+        public DbSet<FlyWith.Models.InterestGroup> InterestGroups { get; set; }
 
-        public System.Data.Entity.DbSet<FlyWith.Models.Dating> Datings { get; set; }
+        public DbSet<FlyWith.Models.Dating> Datings { get; set; }
 
-        public System.Data.Entity.DbSet<FlyWith.Models.SeatingPosition> SeatingPositions { get; set; }
+        public DbSet<FlyWith.Models.SeatingPosition> SeatingPositions { get; set; }
 
-        public System.Data.Entity.DbSet<FlyWith.Models.PersonalDetails_SeatingPosition_YesNOAnswer> PersonalDetails_SeatingPosition_YesNOAnswer { get; set; }
+        public DbSet<FlyWith.Models.PersonalDetails_SeatingPosition_YesNOAnswer> PersonalDetails_SeatingPosition_YesNOAnswer { get; set; }
 
-        public System.Data.Entity.DbSet<FlyWith.Models.Occupation> Occupations { get; set; }
+        public DbSet<FlyWith.Models.Occupation> Occupations { get; set; }
     }
 }

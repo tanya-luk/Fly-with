@@ -8,14 +8,14 @@ namespace FlyWith.Models
     public class PersonalDetails_SeatingPosition_YesNOAnswer
     {
         
-    
-            [Key Column(Order = 0)]
+    //
+            [Key, Column(Order = 0)]
             public int PersonalDetailsID { get; set; }
             [ForeignKey("PersonalDetailsID")]
             public virtual PersonalDetails PersonalDetails { get; set; }
 
             [Display(Name = "Last Name")]
-            [Key Column(Order = 1)]
+            [Key, Column(Order = 1)]
             public int SeatingPositionID { get; set; }
             [ForeignKey("SeatingPositionID")]
             public virtual SeatingPosition SeatingPosition { get; set; }

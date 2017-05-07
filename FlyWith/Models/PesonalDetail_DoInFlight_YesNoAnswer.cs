@@ -6,12 +6,12 @@ namespace FlyWith.Models
 {
     public class PesonalDetail_DoInFlight_YesNoAnswer
     {
-        [Key Column(Order = 0)]
+        [Key, Column(Order = 0)]
         public int PersonalDetailsID { get; set; }
         [ForeignKey("PersonalDetailsID")]
         public virtual PersonalDetails PersonalDetails { get; set; }
 
-        [Key Column(Order = 1)]
+        [Key, Column(Order = 1)]
         public int DoInFlightID { get; set; }
         [ForeignKey("DoInFlightID")]
         public virtual DoInFlight DoInFlight { get; set; }

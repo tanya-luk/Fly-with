@@ -7,13 +7,14 @@ namespace FlyWith.Models
 {
     public class PersonalDetails
     {
+        [Key]
         public int PersonalDetailsID { get; set;}
-        /* [StringLength(128), MinLength(3)]
+         [StringLength(128), MinLength(3)]
          [ForeignKey("AspNetUser")]
          public virtual string AspNetUserId { get; set; }
 
 
-         public ApplicationUser AspNetUser { get; set; }*/
+         public ApplicationUser AspNetUser { get; set; }
 
 
         [Display(Name = "First Name")]

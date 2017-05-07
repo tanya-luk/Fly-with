@@ -37,7 +37,7 @@ namespace FlyWith.Migrations
                 new Country { Name = "Algeria" },
                 new Country { Name = "Andorra" },
                 new Country { Name = "Angola" },
-                new Country { Name = "Antigua and Barbuda" }, 
+                new Country { Name = "Antigua and Barbuda" },
                 new Country { Name = "Argentina" },
                 new Country { Name = "Armenia" },
                 new Country { Name = "Aruba" },
@@ -46,7 +46,7 @@ namespace FlyWith.Migrations
                 new Country { Name = "Azerbaijan" },
                 new Country { Name = "Bahamas" },
                 new Country { Name = "Bahrain" },
-                new Country { Name = "Bangladesh"},
+                new Country { Name = "Bangladesh" },
                 new Country { Name = "Barbados" },
                 new Country { Name = "Belarus" },
                 new Country { Name = "Belgium" },
@@ -134,7 +134,7 @@ namespace FlyWith.Migrations
                 new Country { Name = "Libya" },
                 new Country { Name = "Liechtenstein" },
                 new Country { Name = "Lithuania" },
-                new Country { Name = "Luxembourg" }, 
+                new Country { Name = "Luxembourg" },
                 new Country { Name = "Macedonia(FYROM)" },
                 new Country { Name = "Madagascar" },
                 new Country { Name = "Malawi" },
@@ -223,7 +223,7 @@ namespace FlyWith.Migrations
                 new Country { Name = "Ukraine" },
                 new Country { Name = "United Arab Emirates(UAE)" },
                 new Country { Name = "United Kingdom (UK)" },
-                new Country { Name = "United States of America(USA)" }, 
+                new Country { Name = "United States of America(USA)" },
                 new Country { Name = "Uruguay" },
                 new Country { Name = "Uzbekistan" },
                 new Country { Name = "Vanuatu" },
@@ -231,90 +231,90 @@ namespace FlyWith.Migrations
                 new Country { Name = "Vietnam" },
                 new Country { Name = "Yemen" },
                 new Country { Name = "Zambia" },
-                new Country { Name = "Zimbabwe" } 
-          
+                new Country { Name = "Zimbabwe" }
+
              );
-            
+
             context.Sexes.AddOrUpdate(
-               
+
                 new Sex { Name = "Female" },
                 new Sex { Name = "Male" }
              );
-           
-            context.DoInFlights.AddOrUpdate(d=>d.Name,
+
+            context.DoInFlights.AddOrUpdate(d => d.Name,
 
               new DoInFlight { Name = "Business Conversation" },
               new DoInFlight { Name = "Casual Chat" },
               new DoInFlight { Name = "Dating" },
               new DoInFlight { Name = "Silence" }
-            
+
               );
-            context.InterestGroups.AddOrUpdate(b=>b.Name,
-                
-                new InterestGroup { Name = "Arts" },
-                new InterestGroup { Name = "Performances" },
-                new InterestGroup { Name = "Reading" },
-                new InterestGroup { Name = "Fashion" },
-                new InterestGroup { Name = "Food" },
-                new InterestGroup { Name = "Games"},
-                new InterestGroup { Name = "Movies" },
-                new InterestGroup { Name = "Music" },
-                new InterestGroup { Name = "Religion" },
-                new InterestGroup { Name = "Sport" },
-                new InterestGroup { Name = "Travel" },
-                new InterestGroup { Name = "News" },
-                new InterestGroup { Name = "Science" }
+            context.InterestGroups.AddOrUpdate(b => b.Name,
+
+                new InterestGroup {InterestGroupID=1, Name = "Arts" },
+                new InterestGroup { InterestGroupID = 2, Name = "Performances" },
+                new InterestGroup { InterestGroupID = 3, Name = "Reading" },
+                new InterestGroup { InterestGroupID = 4, Name = "Fashion" },
+                new InterestGroup { InterestGroupID = 5, Name = "Food" },
+                new InterestGroup { InterestGroupID = 6, Name = "Games" },
+                new InterestGroup { InterestGroupID = 7, Name = "Movies" },
+                new InterestGroup { InterestGroupID = 8, Name = "Music" },
+                new InterestGroup { InterestGroupID = 9, Name = "Religion" },
+                new InterestGroup { InterestGroupID = 10, Name = "Sport" },
+                new InterestGroup { InterestGroupID = 11, Name = "Travel" },
+                new InterestGroup { InterestGroupID = 12, Name = "News" },
+                new InterestGroup { InterestGroupID = 13, Name = "Science" }
               );
 
             context.LanguageLevels.AddOrUpdate(l => l.Name,
 
                 new LanguageLevel { Name = "Native" },
                 new LanguageLevel { Name = "Fluent" }
-                
+
              );
 
-            context.Levels.AddOrUpdate(l=>l.Name,
-                
-                new Level { Name = "0"},
-                new Level { Name = "1" }, 
-                new Level { Name = "2" }, 
-                new Level { Name = "3" },
-                new Level { Name = "4" },
-                new Level { Name = "5" },
-                new Level { Name = "6" },
-                new Level { Name = "7" },
-                new Level { Name = "8" },
-                new Level { Name = "9" },
-                new Level { Name = "10" }
-                
+            context.Levels.AddOrUpdate(l => l.Name,
+
+                new Level { LevelID=0,Name = "0" },
+                new Level { LevelID = 1, Name = "1" },
+                new Level { LevelID = 2, Name = "2" },
+                new Level { LevelID = 3, Name = "3" },
+                new Level { LevelID = 4, Name = "4" },
+                new Level { LevelID = 5, Name = "5" },
+                new Level { LevelID = 6, Name = "6" },
+                new Level { LevelID = 7, Name = "7" },
+                new Level { LevelID = 8, Name = "8" },
+                new Level { LevelID = 9, Name = "9" },
+                new Level { LevelID = 10, Name = "10" }
+
              );
 
-            context.MealTypes.AddOrUpdate(m=>m.Name,
-                
+            context.MealTypes.AddOrUpdate(m => m.Name,
+
                 new MealType { Name = "Kosher" },
                 new MealType { Name = "Vegetarian" },
                 new MealType { Name = "Vegan" },
                 new MealType { Name = "Halal" },
                 new MealType { Name = "Allergy" },
                 new MealType { Name = "Low-cal" }
-                
+
              );
-            context.SeatingPositions.AddOrUpdate(s=>s.Name,
-                
+            context.SeatingPositions.AddOrUpdate(s => s.Name,
+
                new SeatingPosition { Name = "Aisle" },
                new SeatingPosition { Name = "Window" },
                new SeatingPosition { Name = "Center" },
                new SeatingPosition { Name = "Override" }
 
              );
-            context.YesNoAnswers.AddOrUpdate(y=>y.Name,
-                
+            context.YesNoAnswers.AddOrUpdate(y => y.Name,
+
                 new YesNoAnswer { Name = "Yes" },
-                new YesNoAnswer { Name = "No"}
-                
+                new YesNoAnswer { Name = "No" }
+
               );
 
-            context.Occupations.AddOrUpdate(o=>o.Name,
+            context.Occupations.AddOrUpdate(o => o.Name,
 
                 new Occupation { Name = "Law" },
                 new Occupation { Name = "Technology" },
@@ -334,7 +334,7 @@ namespace FlyWith.Migrations
 
             context.Languages.AddOrUpdate(l => l.Name,
 
-                new Language { Name = "Afrikaans"},
+                new Language { Name = "Afrikaans" },
                 new Language { Name = "Albanian" },
                 new Language { Name = "Amharic" },
                 new Language { Name = "Arabic" },
@@ -410,11 +410,11 @@ namespace FlyWith.Migrations
                 new Language { Name = "Uzbek" },
                 new Language { Name = "Vietnamese" },
                 new Language { Name = "Welsh" }
-                
+
                 );
 
-            context.Interests.AddOrUpdate( i=> new { i.Name, i.InterestGroupID }, 
-                
+            context.Interests.AddOrUpdate(i => new { i.Name, i.InterestGroupID },
+
                 //arts group
                 new Interest { Name = "Architecture", InterestGroupID = 1 },
                 new Interest { Name = "Conceptual", InterestGroupID = 1 },
@@ -509,7 +509,7 @@ namespace FlyWith.Migrations
                 new Interest { Name = "Cities", InterestGroupID = 11 },
                 new Interest { Name = "Countryside", InterestGroupID = 11 },
                 new Interest { Name = "Cruise", InterestGroupID = 11 },
-                new Interest { Name = "Hiking", InterestGroupID = 11 }, 
+                new Interest { Name = "Hiking", InterestGroupID = 11 },
                 new Interest { Name = "Monuments", InterestGroupID = 11 },
                 new Interest { Name = "Mountain", InterestGroupID = 11 },
                 new Interest { Name = "Museums", InterestGroupID = 11 },

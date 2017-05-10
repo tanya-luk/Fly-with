@@ -10,36 +10,77 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Interest.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Level.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PersonalDetails.FirstName)
-        </th>
-        <th></th>
-    </tr>
+    @foreach (var item in ViewBag.Categories)
+    {
+        <tr>
+            <th> <h2>@Html.Raw(item.Name)</h2>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Interest.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Level.Name)
+            </th>
+            <th></th>
+        </tr>
+        foreach (var item1 in Model)
+        {
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Interest.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Level.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PersonalDetails.FirstName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
+            if (item.InterestGroupID == item1.Interest.InterestGroupID)
+            {
 
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item1.Interest.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item1.Level.Name)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { PersonalDetailsID = item1.PersonalDetailsID, InterestID=item1.InterestID }) |
+                        @Html.ActionLink("Details", "Details", new { PersonalDetailsID = item1.PersonalDetailsID, InterestID = item1.InterestID }) |
+                        @Html.ActionLink("Delete", "Delete", new { PersonalDetailsID = item1.PersonalDetailsID, InterestID = item1.InterestID })
+                    </td>
+                </tr>
+
+            }
+        }
+       <tr></tr><tr></tr>
+    }
 </table>
+@*<table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Interest.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Level.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PersonalDetails.FirstName)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Interest.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Level.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PersonalDetails.FirstName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+    </table>*@

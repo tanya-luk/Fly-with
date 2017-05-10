@@ -13,18 +13,19 @@ namespace FlyWith.Controllers
         // GET: PersonalDetails_Interest_Level
         public ActionResult Index()
         {
+            ViewBag.Categories = db.InterestGroups.ToList();
             var personalDetails_Interest_Level = db.PersonalDetails_Interest_Level.Include(p => p.Interest).Include(p => p.Level).Include(p => p.PersonalDetails);
             return View(personalDetails_Interest_Level.ToList());
         }
 
         // GET: PersonalDetails_Interest_Level/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int? PersonalDetailsID,int? InterestID)
         {
-            if (id == null)
+            if (PersonalDetailsID == null || InterestID == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PersonalDetails_Interest_Level personalDetails_Interest_Level = db.PersonalDetails_Interest_Level.Find(id);
+            PersonalDetails_Interest_Level personalDetails_Interest_Level = db.PersonalDetails_Interest_Level.Find(PersonalDetailsID, InterestID);
             if (personalDetails_Interest_Level == null)
             {
                 return HttpNotFound();
@@ -62,13 +63,13 @@ namespace FlyWith.Controllers
         }
 
         // GET: PersonalDetails_Interest_Level/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int? PersonalDetailsID, int? InterestID)
         {
-            if (id == null)
+            if (PersonalDetailsID == null || InterestID == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PersonalDetails_Interest_Level personalDetails_Interest_Level = db.PersonalDetails_Interest_Level.Find(id);
+            PersonalDetails_Interest_Level personalDetails_Interest_Level = db.PersonalDetails_Interest_Level.Find(PersonalDetailsID, InterestID);
             if (personalDetails_Interest_Level == null)
             {
                 return HttpNotFound();
@@ -99,13 +100,13 @@ namespace FlyWith.Controllers
         }
 
         // GET: PersonalDetails_Interest_Level/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int? PersonalDetailsID, int? InterestID)
         {
-            if (id == null)
+            if (PersonalDetailsID == null || InterestID == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PersonalDetails_Interest_Level personalDetails_Interest_Level = db.PersonalDetails_Interest_Level.Find(id);
+            PersonalDetails_Interest_Level personalDetails_Interest_Level = db.PersonalDetails_Interest_Level.Find(PersonalDetailsID, InterestID);
             if (personalDetails_Interest_Level == null)
             {
                 return HttpNotFound();
@@ -116,9 +117,9 @@ namespace FlyWith.Controllers
         // POST: PersonalDetails_Interest_Level/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int PersonalDetailsID, int InterestID)
         {
-            PersonalDetails_Interest_Level personalDetails_Interest_Level = db.PersonalDetails_Interest_Level.Find(id);
+            PersonalDetails_Interest_Level personalDetails_Interest_Level = db.PersonalDetails_Interest_Level.Find(PersonalDetailsID, InterestID);
             db.PersonalDetails_Interest_Level.Remove(personalDetails_Interest_Level);
             db.SaveChanges();
             return RedirectToAction("Index");

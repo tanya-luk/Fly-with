@@ -17,6 +17,7 @@ namespace FlyWith.Controllers
         // GET: PesonalDetail_DoInFlight_YesNoAnswer
         public ActionResult Index()
         {
+            ViewBag.DoInFlight = db.DoInFlights.ToList();
             var pesonalDetail_DoInFlight_YesNoAnswer = db.PesonalDetail_DoInFlight_YesNoAnswer.Include(p => p.DoInFlight).Include(p => p.PersonalDetails).Include(p => p.YesNoAnswer);
             return View(pesonalDetail_DoInFlight_YesNoAnswer.ToList());
         }

@@ -9,6 +9,78 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+<table class="table">
+    @foreach (var item in ViewBag.SeatingPositions)
+    {
+        <tr>
+            <th>
+                <h2>@Html.Raw(item.Name)</h2>
+            </th>
+        </tr>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.YesNoAnswer.Name)
+            </th>
+            <th></th>
+        </tr>
+        foreach (var item1 in Model)
+        {
+
+            if (item.LanguageID == item1.PersonalDetailsID)
+            {
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item1.SeatingPosition.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item1.YesNoAnswer.Name)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { PersonalDetailsID = item1.PersonalDetailsID, SeatingPOsitionID = item1.SeatingPositionID }) |
+                        @Html.ActionLink("Details", "Details", new { PersonalDetailsID = item1.PersonalDetailsID, SeatingPOsitionID = item1.SeatingPositionID }) |
+                        @Html.ActionLink("Delete", "Delete", new { PersonalDetailsID = item1.PersonalDetailsID, SeatingPOsitionID = item1.SeatingPositionID })
+                    </td>
+                </tr>
+
+            }
+        }
+        <tr></tr>
+        <tr></tr>
+    }
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
 <table class="table">
     <tr>
         <th>
@@ -41,4 +113,4 @@
     </tr>
 }
 
-</table>
+</table>*@

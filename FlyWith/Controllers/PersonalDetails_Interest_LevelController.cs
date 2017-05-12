@@ -3,9 +3,12 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using FlyWith.Models;
+using Microsoft.AspNet.Identity;
+using System.Collections.Generic;
 
 namespace FlyWith.Controllers
 {
+    [Authorize]
     public class PersonalDetails_Interest_LevelController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -13,6 +16,30 @@ namespace FlyWith.Controllers
         // GET: PersonalDetails_Interest_Level
         public ActionResult Index()
         {
+            string currentUserId = User.Identity.GetUserId();
+            ApplicationUser currentUser = db.Users.FirstOrDefault(x => x.Id == currentUserId);
+            var person = db.PersonalDetails.FirstOrDefault(e => (e.AspNetUserId.Equals(currentUserId)));
+            var interests = db.Interests.Select(i=>i.InterestID).ToList();
+            var levelId = db.Levels.Where(l=>l.Name.Equals("0")).Select(l => l.LevelID);
+            if (interests.ToList().Count > 0)
+            {
+                
+                foreach (var inter in interests.ToList())
+                {
+                    var exist = db.PersonalDetails_Interest_Level.Where(p => p.InterestID.Equals(inter) && p.PersonalDetailsID.Equals(person.PersonalDetailsID)).ToList();
+                    if (exist.Count == 0)
+                    {
+                        PersonalDetails_Interest_Level record = new PersonalDetails_Interest_Level
+                        {
+                            PersonalDetailsID = person.PersonalDetailsID,
+                            InterestID = inter,
+                            LevelID = levelId.First()
+                        };
+                        db.PersonalDetails_Interest_Level.Add(record);
+                    }
+                }
+                db.SaveChanges();
+            }
             ViewBag.Categories = db.InterestGroups.ToList();
             var personalDetails_Interest_Level = db.PersonalDetails_Interest_Level.Include(p => p.Interest).Include(p => p.Level).Include(p => p.PersonalDetails);
             return View(personalDetails_Interest_Level.ToList());

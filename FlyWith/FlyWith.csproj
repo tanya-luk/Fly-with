@@ -223,6 +223,7 @@
     <Compile Include="Controllers\PersonalDetailsController.cs" />
     <Compile Include="Controllers\PersonalDetails_Interest_LevelController.cs" />
     <Compile Include="Controllers\PersonalDetails_Language_LanguageLevelController.cs" />
+    <Compile Include="Controllers\PersonalDetails_SeatingPosition_YesNOAnswer1Controller.cs" />
     <Compile Include="Controllers\PersonalDetails_SeatingPosition_YesNOAnswerController.cs" />
     <Compile Include="Controllers\PesonalDetail_DoInFlight_YesNoAnswerController.cs" />
     <Compile Include="Controllers\SeatingPositionsController.cs" />

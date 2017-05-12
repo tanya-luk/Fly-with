@@ -14,6 +14,7 @@ namespace FlyWith.Controllers
         // GET: PersonalDetails_Language_LanguageLevel
         public ActionResult Index()
         {
+            ViewBag.Languages = db.Languages.ToList();
             var personalDetails_Language_LanguageLevel = db.PersonalDetails_Language_LanguageLevel.Include(p => p.Language).Include(p => p.LanguageLevel).Include(p => p.PersonalDetails);
             return View(personalDetails_Language_LanguageLevel.ToList());
         }
@@ -63,13 +64,13 @@ namespace FlyWith.Controllers
         }
 
         // GET: PersonalDetails_Language_LanguageLevel/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int? PersonalDetailsID, int? LanguageID)
         {
-            if (id == null)
+            if (PersonalDetailsID == null || LanguageID == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PersonalDetails_Language_LanguageLevel personalDetails_Language_LanguageLevel = db.PersonalDetails_Language_LanguageLevel.Find(id);
+            PersonalDetails_Language_LanguageLevel personalDetails_Language_LanguageLevel = db.PersonalDetails_Language_LanguageLevel.Find(PersonalDetailsID,LanguageID);
             if (personalDetails_Language_LanguageLevel == null)
             {
                 return HttpNotFound();
@@ -100,13 +101,13 @@ namespace FlyWith.Controllers
         }
 
         // GET: PersonalDetails_Language_LanguageLevel/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int? PersonalDetailsID, int? LanguageID)
         {
-            if (id == null)
+            if (PersonalDetailsID == null || LanguageID == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PersonalDetails_Language_LanguageLevel personalDetails_Language_LanguageLevel = db.PersonalDetails_Language_LanguageLevel.Find(id);
+            PersonalDetails_Language_LanguageLevel personalDetails_Language_LanguageLevel = db.PersonalDetails_Language_LanguageLevel.Find(PersonalDetailsID,LanguageID);
             if (personalDetails_Language_LanguageLevel == null)
             {
                 return HttpNotFound();
@@ -117,9 +118,9 @@ namespace FlyWith.Controllers
         // POST: PersonalDetails_Language_LanguageLevel/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int? PersonalDetailsID, int? LanguageID)
         {
-            PersonalDetails_Language_LanguageLevel personalDetails_Language_LanguageLevel = db.PersonalDetails_Language_LanguageLevel.Find(id);
+            PersonalDetails_Language_LanguageLevel personalDetails_Language_LanguageLevel = db.PersonalDetails_Language_LanguageLevel.Find(PersonalDetailsID,LanguageID);
             db.PersonalDetails_Language_LanguageLevel.Remove(personalDetails_Language_LanguageLevel);
             db.SaveChanges();
             return RedirectToAction("Index");

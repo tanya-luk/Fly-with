@@ -10,26 +10,26 @@ using FlyWith.Models;
 
 namespace FlyWith.Controllers
 {
-    public class PersonalDetails_SeatingPosition_YesNOAnswerController : Controller
+    public class PersonalDetails_SeatingPosition_YesNOAnswer1Controller : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: PersonalDetails_SeatingPosition_YesNOAnswer
+        // GET: PersonalDetails_SeatingPosition_YesNOAnswer1
         public ActionResult Index()
         {
-            ViewBag.SeatingPositions = db.SeatingPositions.ToList();
+            ViewBag.DoInFlight = db.SeatingPositions.ToList();
             var personalDetails_SeatingPosition_YesNOAnswer = db.PersonalDetails_SeatingPosition_YesNOAnswer.Include(p => p.PersonalDetails).Include(p => p.SeatingPosition).Include(p => p.YesNoAnswer);
             return View(personalDetails_SeatingPosition_YesNOAnswer.ToList());
         }
 
-        // GET: PersonalDetails_SeatingPosition_YesNOAnswer/Details/5
-        public ActionResult Details(int? PersonalDetailsID, int? SeatingPositionID)
+        // GET: PersonalDetails_SeatingPosition_YesNOAnswer1/Details/5
+        public ActionResult Details(int? PersonalDetailsID, int? DoInFlightID)
         {
-            if (PersonalDetailsID == null || SeatingPositionID == null)
+            if (PersonalDetailsID == null || DoInFlightID == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PersonalDetails_SeatingPosition_YesNOAnswer personalDetails_SeatingPosition_YesNOAnswer = db.PersonalDetails_SeatingPosition_YesNOAnswer.Find(PersonalDetailsID, SeatingPositionID);
+            PersonalDetails_SeatingPosition_YesNOAnswer personalDetails_SeatingPosition_YesNOAnswer = db.PersonalDetails_SeatingPosition_YesNOAnswer.Find(PersonalDetailsID, DoInFlightID);
             if (personalDetails_SeatingPosition_YesNOAnswer == null)
             {
                 return HttpNotFound();
@@ -37,16 +37,16 @@ namespace FlyWith.Controllers
             return View(personalDetails_SeatingPosition_YesNOAnswer);
         }
 
-        // GET: PersonalDetails_SeatingPosition_YesNOAnswer/Create
+        // GET: PersonalDetails_SeatingPosition_YesNOAnswer1/Create
         public ActionResult Create()
         {
-            ViewBag.PersonalDetailsID = new SelectList(db.PersonalDetails, "PersonalDetailsID", "FirstName");
+            ViewBag.PersonalDetailsID = new SelectList(db.PersonalDetails, "PersonalDetailsID", "AspNetUserId");
             ViewBag.SeatingPositionID = new SelectList(db.SeatingPositions, "SeatingPositionID", "Name");
             ViewBag.YesNoAnswerID = new SelectList(db.YesNoAnswers, "YesNoAnswerID", "Name");
             return View();
         }
 
-        // POST: PersonalDetails_SeatingPosition_YesNOAnswer/Create
+        // POST: PersonalDetails_SeatingPosition_YesNOAnswer1/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -60,31 +60,31 @@ namespace FlyWith.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.PersonalDetailsID = new SelectList(db.PersonalDetails, "PersonalDetailsID", "FirstName", personalDetails_SeatingPosition_YesNOAnswer.PersonalDetailsID);
+            ViewBag.PersonalDetailsID = new SelectList(db.PersonalDetails, "PersonalDetailsID", "AspNetUserId", personalDetails_SeatingPosition_YesNOAnswer.PersonalDetailsID);
             ViewBag.SeatingPositionID = new SelectList(db.SeatingPositions, "SeatingPositionID", "Name", personalDetails_SeatingPosition_YesNOAnswer.SeatingPositionID);
             ViewBag.YesNoAnswerID = new SelectList(db.YesNoAnswers, "YesNoAnswerID", "Name", personalDetails_SeatingPosition_YesNOAnswer.YesNoAnswerID);
             return View(personalDetails_SeatingPosition_YesNOAnswer);
         }
 
-        // GET: PersonalDetails_SeatingPosition_YesNOAnswer/Edit/5
-        public ActionResult Edit(int? PersonalDetailsID, int? SeatingPositionID)
+        // GET: PersonalDetails_SeatingPosition_YesNOAnswer1/Edit/5
+        public ActionResult Edit(int? PersonalDetailsID, int? DoInFlightID)
         {
-            if (PersonalDetailsID == null || SeatingPositionID == null)
+            if (PersonalDetailsID == null || DoInFlightID == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PersonalDetails_SeatingPosition_YesNOAnswer personalDetails_SeatingPosition_YesNOAnswer = db.PersonalDetails_SeatingPosition_YesNOAnswer.Find(PersonalDetailsID, SeatingPositionID);
+            PersonalDetails_SeatingPosition_YesNOAnswer personalDetails_SeatingPosition_YesNOAnswer = db.PersonalDetails_SeatingPosition_YesNOAnswer.Find(PersonalDetailsID,DoInFlightID);
             if (personalDetails_SeatingPosition_YesNOAnswer == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.PersonalDetailsID = new SelectList(db.PersonalDetails, "PersonalDetailsID", "FirstName", personalDetails_SeatingPosition_YesNOAnswer.PersonalDetailsID);
+            ViewBag.PersonalDetailsID = new SelectList(db.PersonalDetails, "PersonalDetailsID", "AspNetUserId", personalDetails_SeatingPosition_YesNOAnswer.PersonalDetailsID);
             ViewBag.SeatingPositionID = new SelectList(db.SeatingPositions, "SeatingPositionID", "Name", personalDetails_SeatingPosition_YesNOAnswer.SeatingPositionID);
             ViewBag.YesNoAnswerID = new SelectList(db.YesNoAnswers, "YesNoAnswerID", "Name", personalDetails_SeatingPosition_YesNOAnswer.YesNoAnswerID);
             return View(personalDetails_SeatingPosition_YesNOAnswer);
         }
 
-        // POST: PersonalDetails_SeatingPosition_YesNOAnswer/Edit/5
+        // POST: PersonalDetails_SeatingPosition_YesNOAnswer1/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -97,20 +97,20 @@ namespace FlyWith.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.PersonalDetailsID = new SelectList(db.PersonalDetails, "PersonalDetailsID", "FirstName", personalDetails_SeatingPosition_YesNOAnswer.PersonalDetailsID);
+            ViewBag.PersonalDetailsID = new SelectList(db.PersonalDetails, "PersonalDetailsID", "AspNetUserId", personalDetails_SeatingPosition_YesNOAnswer.PersonalDetailsID);
             ViewBag.SeatingPositionID = new SelectList(db.SeatingPositions, "SeatingPositionID", "Name", personalDetails_SeatingPosition_YesNOAnswer.SeatingPositionID);
             ViewBag.YesNoAnswerID = new SelectList(db.YesNoAnswers, "YesNoAnswerID", "Name", personalDetails_SeatingPosition_YesNOAnswer.YesNoAnswerID);
             return View(personalDetails_SeatingPosition_YesNOAnswer);
         }
 
-        // GET: PersonalDetails_SeatingPosition_YesNOAnswer/Delete/5
-        public ActionResult Delete(int? PersonalDetailsID, int? SeatingPositionID)
+        // GET: PersonalDetails_SeatingPosition_YesNOAnswer1/Delete/5
+        public ActionResult Delete(int? PersonalDetailsID, int? DoInFlightID)
         {
-            if (PersonalDetailsID == null || SeatingPositionID == null)
+            if (PersonalDetailsID == null || DoInFlightID == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PersonalDetails_SeatingPosition_YesNOAnswer personalDetails_SeatingPosition_YesNOAnswer = db.PersonalDetails_SeatingPosition_YesNOAnswer.Find(PersonalDetailsID,SeatingPositionID);
+            PersonalDetails_SeatingPosition_YesNOAnswer personalDetails_SeatingPosition_YesNOAnswer = db.PersonalDetails_SeatingPosition_YesNOAnswer.Find(PersonalDetailsID,DoInFlightID);
             if (personalDetails_SeatingPosition_YesNOAnswer == null)
             {
                 return HttpNotFound();
@@ -118,12 +118,12 @@ namespace FlyWith.Controllers
             return View(personalDetails_SeatingPosition_YesNOAnswer);
         }
 
-        // POST: PersonalDetails_SeatingPosition_YesNOAnswer/Delete/5
+        // POST: PersonalDetails_SeatingPosition_YesNOAnswer1/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int? PersonalDetailsID, int? SeatingPositionID)
+        public ActionResult DeleteConfirmed(int? PersonalDetailsID, int? DoInFlightID)
         {
-            PersonalDetails_SeatingPosition_YesNOAnswer personalDetails_SeatingPosition_YesNOAnswer = db.PersonalDetails_SeatingPosition_YesNOAnswer.Find(PersonalDetailsID,SeatingPositionID);
+            PersonalDetails_SeatingPosition_YesNOAnswer personalDetails_SeatingPosition_YesNOAnswer = db.PersonalDetails_SeatingPosition_YesNOAnswer.Find(PersonalDetailsID,DoInFlightID);
             db.PersonalDetails_SeatingPosition_YesNOAnswer.Remove(personalDetails_SeatingPosition_YesNOAnswer);
             db.SaveChanges();
             return RedirectToAction("Index");

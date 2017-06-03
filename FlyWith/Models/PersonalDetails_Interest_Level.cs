@@ -21,6 +21,7 @@ namespace FlyWith.Models
 
         //Can be more then one time for pair person and language
         
+        [Range (0,10)]
         public int LevelID { get; set; }
         [ForeignKey("LevelID")]
         public virtual Level Level { get; set; }

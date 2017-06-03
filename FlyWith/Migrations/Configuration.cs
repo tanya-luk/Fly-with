@@ -264,7 +264,27 @@ namespace FlyWith.Migrations
                 new InterestGroup { InterestGroupID = 10, Name = "Sport" },
                 new InterestGroup { InterestGroupID = 11, Name = "Travel" },
                 new InterestGroup { InterestGroupID = 12, Name = "News" },
-                new InterestGroup { InterestGroupID = 13, Name = "Science" }
+                new InterestGroup { InterestGroupID = 13, Name = "Science" },
+                
+                //linkedin groups
+                new InterestGroup { InterestGroupID = 14, Name = "Agriculture" },
+                new InterestGroup { InterestGroupID = 15, Name = "Art" },
+                new InterestGroup { InterestGroupID = 16, Name = "Construction" },
+                new InterestGroup { InterestGroupID = 17, Name = "Consumer goods" },
+                new InterestGroup { InterestGroupID = 18, Name = "Corporate" },
+                new InterestGroup { InterestGroupID = 19, Name = "Education" },
+                new InterestGroup { InterestGroupID = 20, Name = "Finance" },
+                new InterestGroup { InterestGroupID = 21, Name = "Government" },
+                new InterestGroup { InterestGroupID = 22, Name = "Health" },
+                new InterestGroup { InterestGroupID = 23, Name = "Legal" },
+                new InterestGroup { InterestGroupID = 24, Name = "Manufacturing" },
+                new InterestGroup { InterestGroupID = 25, Name = "Medical" },
+                new InterestGroup { InterestGroupID = 26, Name = "Non-profit organization" },
+                new InterestGroup { InterestGroupID = 27, Name = "Recreational" },
+                new InterestGroup { InterestGroupID = 28, Name = "Services" },
+                new InterestGroup { InterestGroupID = 29, Name = "Technology" },
+                new InterestGroup { InterestGroupID = 30, Name = "Transportation" }
+                
               );
 
             context.LanguageLevels.AddOrUpdate(l => new { l.Name, l.LanguageLevelID },
@@ -532,8 +552,332 @@ namespace FlyWith.Migrations
                 new Interest { Name = "Computer", InterestGroupID = 13, InterestID = 87 },
                 new Interest { Name = "Math", InterestGroupID = 13, InterestID = 88 },
                 new Interest { Name = "Medicine", InterestGroupID = 13, InterestID = 89 },
-                new Interest { Name = "Physics", InterestGroupID = 13, InterestID = 90 }
+                new Interest { Name = "Physics", InterestGroupID = 13, InterestID = 90 },
 
+               //linkedin interests with 1 category
+                new Interest { Name = "Alternative Medicine", InterestGroupID = 22, InterestID = 91 },
+                new Interest { Name = "Apparel & Fashion", InterestGroupID = 17, InterestID = 92 },
+                new Interest { Name = "Architecture & Planning", InterestGroupID = 16, InterestID = 93 },
+                new Interest { Name = "Automotive", InterestGroupID = 24, InterestID = 94 },
+                new Interest { Name = "Banking", InterestGroupID = 20, InterestID = 95 },
+                new Interest { Name = "Building Materials", InterestGroupID = 16, InterestID = 96 },
+                new Interest { Name = "Capital Markets", InterestGroupID = 20, InterestID = 97 },
+                new Interest { Name = "Chemicals", InterestGroupID = 24, InterestID = 98 },
+                new Interest { Name = "Computer & Network Security", InterestGroupID = 29, InterestID = 99 },
+                new Interest { Name = "Computer Hardware", InterestGroupID = 29, InterestID = 100 },
+                new Interest { Name = "Computer Networking", InterestGroupID = 29, InterestID = 101 },
+                new Interest { Name = "Computer Software", InterestGroupID = 29, InterestID = 102 },
+                new Interest { Name = "Construction", InterestGroupID = 16, InterestID = 103 },
+                new Interest { Name = "Cosmetics", InterestGroupID = 17, InterestID = 104 },
+                new Interest { Name = "Dairy", InterestGroupID = 14, InterestID = 105 },
+                new Interest { Name = "Education Management", InterestGroupID = 19, InterestID = 106 },
+                new Interest { Name = "Executive Office", InterestGroupID = 21, InterestID = 107 },
+                new Interest { Name = "Farming", InterestGroupID = 14, InterestID = 108 },
+                new Interest { Name = "Financial Services", InterestGroupID = 20, InterestID = 109 },
+                new Interest { Name = "Fishery", InterestGroupID = 14, InterestID = 110 },
+                new Interest { Name = "Fund-Raising", InterestGroupID = 26, InterestID = 111 },
+                new Interest { Name = "Gambling & Casinos", InterestGroupID = 27, InterestID = 112 },
+                new Interest { Name = "Government Administration", InterestGroupID = 21, InterestID = 113 },
+                new Interest { Name = "Government Relations", InterestGroupID = 21, InterestID = 114 },
+                new Interest { Name = "Higher Education", InterestGroupID = 19, InterestID = 115 },
+                new Interest { Name = "Hospital & Health Care", InterestGroupID = 22, InterestID = 116 },
+                new Interest { Name = "Human Resources", InterestGroupID = 18, InterestID = 117 },
+                new Interest { Name = "Information Technology and Services", InterestGroupID = 29, InterestID = 118 },
+                new Interest { Name = "Insurance", InterestGroupID = 20, InterestID = 119 },
+                new Interest { Name = "International Affairs", InterestGroupID = 21, InterestID = 119 },
+                new Interest { Name = "Internet", InterestGroupID = 29, InterestID = 120 },
+                new Interest { Name = "Investment Banking", InterestGroupID = 20, InterestID = 121 },
+                new Interest { Name = "Investment Management", InterestGroupID = 20, InterestID = 122 },
+                new Interest { Name = "Law Practice", InterestGroupID = 23, InterestID = 123 },
+                new Interest { Name = "Legal Services", InterestGroupID = 23, InterestID = 124 },
+                new Interest { Name = "Luxury Goods & Jewelry", InterestGroupID = 29, InterestID = 125 },
+                new Interest { Name = "Machinery", InterestGroupID = 24, InterestID = 126 },
+                new Interest { Name = "Management Consulting", InterestGroupID = 18, InterestID = 127 },
+                new Interest { Name = "Maritime", InterestGroupID = 30, InterestID = 128 },
+                new Interest { Name = "Market Research", InterestGroupID = 18, InterestID = 129 },
+                new Interest { Name = "Medical Devices", InterestGroupID = 22, InterestID = 130 },
+                new Interest { Name = "Medical Practice", InterestGroupID = 22, InterestID = 131 },
+                new Interest { Name = "Mental Health Care", InterestGroupID = 22, InterestID = 132 },
+                new Interest { Name = "Military", InterestGroupID = 21, InterestID = 133 },
+                new Interest { Name = "Mining & Metals", InterestGroupID = 24, InterestID = 134 },
+                new Interest { Name = "Non-Profit Organization Management", InterestGroupID = 26, InterestID = 135 },
+                new Interest { Name = "Oil & Energy", InterestGroupID = 24, InterestID = 136 },
+                new Interest { Name = "Online Media", InterestGroupID = 25, InterestID = 137 },
+                new Interest { Name = "Outsourcing/Offshoring", InterestGroupID = 18, InterestID = 138 },
+                new Interest { Name = "Paper & Forest Products", InterestGroupID = 24, InterestID = 139 },
+                new Interest { Name = "Philanthropy", InterestGroupID = 26, InterestID = 140 },
+                new Interest { Name = "Plastics", InterestGroupID = 24, InterestID = 141 },
+                new Interest { Name = "Primary/Secondary Education", InterestGroupID = 19, InterestID = 142 },
+                new Interest { Name = "Professional Training & Coaching", InterestGroupID = 18, InterestID = 143 },
+                new Interest { Name = "Public Policy", InterestGroupID = 21, InterestID = 144 },
+                new Interest { Name = "Public Relations and Communications", InterestGroupID = 18, InterestID = 145 },
+                new Interest { Name = "Public Safety", InterestGroupID = 21, InterestID = 146 },
+                new Interest { Name = "Railroad Manufacture", InterestGroupID = 24, InterestID = 147 },
+                new Interest { Name = "Ranching", InterestGroupID = 14, InterestID = 148 },
+                new Interest { Name = "Semiconductors", InterestGroupID = 29, InterestID = 149 },
+                new Interest { Name = "Shipbuilding", InterestGroupID = 24, InterestID = 150 },
+                new Interest { Name = "Sports", InterestGroupID = 27, InterestID = 151 },
+                new Interest { Name = "Staffing and Recruiting", InterestGroupID = 18, InterestID = 152 },
+                new Interest { Name = "Supermarkets", InterestGroupID = 17, InterestID = 153 },
+                new Interest { Name = "Textiles", InterestGroupID = 24, InterestID = 154 },
+                new Interest { Name = "Tobacco", InterestGroupID = 17, InterestID = 155 },
+                new Interest { Name = "Transportation/Trucking/Railroad", InterestGroupID = 30, InterestID = 156 },
+                new Interest { Name = "Utilities", InterestGroupID = 24, InterestID = 157 },
+                new Interest { Name = "Veterinary", InterestGroupID = 22, InterestID = 158 },
+                new Interest { Name = "Warehousing", InterestGroupID = 30, InterestID = 159 },
+                new Interest { Name = "Wholesale", InterestGroupID = 17, InterestID = 160 },
+                new Interest { Name = "Wireless", InterestGroupID = 29, InterestID = 161 },
+                
+                //Interests with more then 1 category           
+                new Interest { Name = "Accounting", InterestGroupID = 18, InterestID = 162 },
+                new Interest { Name = "Accounting", InterestGroupID = 20, InterestID = 163 },
+
+                new Interest { Name = "Airlines/Aviation", InterestGroupID = 24, InterestID = 164 },
+                new Interest { Name = "Airlines/Aviation", InterestGroupID = 29, InterestID = 165},
+                new Interest { Name = "Airlines/Aviation", InterestGroupID = 30, InterestID = 166 },
+
+                new Interest { Name = "Alternative Dispute Resolution", InterestGroupID = 23, InterestID = 167 },
+                new Interest { Name = "Alternative Dispute Resolution", InterestGroupID = 26, InterestID = 168 },
+
+                new Interest { Name = "Animation", InterestGroupID = 15, InterestID = 169 },
+                new Interest { Name = "Animation", InterestGroupID = 25, InterestID = 170 },
+
+                new Interest { Name = "Arts and Crafts", InterestGroupID = 15, InterestID = 171 },
+                new Interest { Name = "Arts and Crafts", InterestGroupID = 25, InterestID = 172 },
+                new Interest { Name = "Arts and Crafts", InterestGroupID = 27, InterestID = 173 },
+
+                new Interest { Name = "Aviation & Aerospace", InterestGroupID = 21, InterestID = 174 },
+                new Interest { Name = "Aviation & Aerospace", InterestGroupID = 24, InterestID = 175 },
+
+                new Interest { Name = "Biotechnology", InterestGroupID = 21, InterestID = 176 },
+                new Interest { Name = "Biotechnology", InterestGroupID = 22, InterestID = 177 },
+                new Interest { Name = "Biotechnology", InterestGroupID = 29, InterestID = 178 },
+
+                new Interest { Name = "Broadcast Media", InterestGroupID = 25, InterestID = 179 },
+                new Interest { Name = "Broadcast Media", InterestGroupID = 27, InterestID = 180 },
+
+                new Interest { Name = "Business Supplies and Equipment", InterestGroupID = 18, InterestID = 181 },
+                new Interest { Name = "Business Supplies and Equipment", InterestGroupID = 24, InterestID = 182 },
+
+                new Interest { Name = "Civic & Social Organization", InterestGroupID = 26, InterestID = 183 },
+                new Interest { Name = "Civic & Social Organization", InterestGroupID = 28, InterestID = 184 },
+
+                new Interest { Name = "Civil Engineering", InterestGroupID = 16, InterestID = 185 },
+                new Interest { Name = "Civil Engineering", InterestGroupID = 21, InterestID = 186 },
+
+                new Interest { Name = "Commercial Real Estate", InterestGroupID = 16, InterestID = 187 },
+                new Interest { Name = "Commercial Real Estate", InterestGroupID = 18, InterestID = 188 },
+                new Interest { Name = "Commercial Real Estate", InterestGroupID = 20, InterestID = 189 },
+
+                new Interest { Name = "Computer Games", InterestGroupID = 25, InterestID = 190 },
+                new Interest { Name = "Computer Games", InterestGroupID = 27, InterestID = 191 },
+
+                new Interest { Name = "Consumer Electronics", InterestGroupID = 17, InterestID = 192 },
+                new Interest { Name = "Consumer Electronics", InterestGroupID = 24, InterestID = 193 },
+
+                new Interest { Name = "Consumer Goods", InterestGroupID = 17, InterestID = 194 },
+                new Interest { Name = "Consumer Goods", InterestGroupID = 24, InterestID = 195 },
+
+                new Interest { Name = "Consumer Services", InterestGroupID = 26, InterestID = 196 },
+                new Interest { Name = "Consumer Services", InterestGroupID = 28, InterestID = 197 },
+
+                new Interest { Name = "Defense & Space", InterestGroupID = 21, InterestID = 198 },
+                new Interest { Name = "Defense & Space", InterestGroupID = 29, InterestID = 199 },
+
+                new Interest { Name = "Design", InterestGroupID = 15, InterestID = 200 },
+                new Interest { Name = "Design", InterestGroupID = 25, InterestID = 201 },
+
+                new Interest { Name = "E-Learning", InterestGroupID = 19, InterestID = 202 },
+                new Interest { Name = "E-Learning", InterestGroupID = 26, InterestID = 203 },
+
+                new Interest { Name = "Electrical/Electronic Manufacturing", InterestGroupID = 17, InterestID = 204 },
+                new Interest { Name = "Electrical/Electronic Manufacturing", InterestGroupID = 24, InterestID = 205 },
+
+                new Interest { Name = "Entertainment", InterestGroupID = 25, InterestID = 206 },
+                new Interest { Name = "Entertainment", InterestGroupID = 27, InterestID = 207 },
+
+                new Interest { Name = "Environmental Services", InterestGroupID = 26, InterestID = 208 },
+                new Interest { Name = "Environmental Services", InterestGroupID = 28, InterestID = 209 },
+
+                new Interest { Name = "Events Services", InterestGroupID = 18, InterestID = 210 },
+                new Interest { Name = "Events Services", InterestGroupID = 27, InterestID = 211 },
+                new Interest { Name = "Events Services", InterestGroupID = 28, InterestID = 212 },
+
+                new Interest { Name = "Facilities Services", InterestGroupID = 18, InterestID = 213 },
+                new Interest { Name = "Facilities Services", InterestGroupID = 28, InterestID = 214 },
+
+                new Interest { Name = "Fine Art", InterestGroupID = 15, InterestID = 215 },
+                new Interest { Name = "Fine Art", InterestGroupID = 25, InterestID = 216 },
+                new Interest { Name = "Fine Art", InterestGroupID = 27, InterestID = 217 },
+
+                new Interest { Name = "Food & Beverages", InterestGroupID = 27, InterestID = 218 },
+                new Interest { Name = "Food & Beverages", InterestGroupID = 28, InterestID = 219 },
+
+                new Interest { Name = "Food Production", InterestGroupID = 17, InterestID = 220 },
+                new Interest { Name = "Food Production", InterestGroupID = 24, InterestID = 221 },
+                new Interest { Name = "Food Production", InterestGroupID = 28, InterestID = 222 },
+
+                new Interest { Name = "Furniture", InterestGroupID = 17, InterestID = 223 },
+                new Interest { Name = "Furniture", InterestGroupID = 24, InterestID = 224 },
+
+                new Interest { Name = "Glass, Ceramics & Concrete", InterestGroupID = 16, InterestID = 225 },
+                new Interest { Name = "Glass, Ceramics & Concrete", InterestGroupID = 24, InterestID = 226 },
+
+                new Interest { Name = "Graphic Design", InterestGroupID = 15, InterestID = 227 },
+                new Interest { Name = "Graphic Design", InterestGroupID = 25, InterestID = 228 },
+
+                new Interest { Name = "Health, Wellness and Fitness", InterestGroupID = 22, InterestID = 229 },
+                new Interest { Name = "Health, Wellness and Fitness", InterestGroupID = 27, InterestID = 230 },
+
+                new Interest { Name = "Hospitality", InterestGroupID = 27, InterestID = 231 },
+                new Interest { Name = "Hospitality", InterestGroupID = 28, InterestID = 232 },
+                new Interest { Name = "Hospitality", InterestGroupID = 30, InterestID = 233 },
+
+                new Interest { Name = "Import and Export", InterestGroupID = 18, InterestID = 234 },
+                new Interest { Name = "Import and Export", InterestGroupID = 17, InterestID = 235 },
+                new Interest { Name = "Import and Export", InterestGroupID = 30, InterestID = 236 },
+
+                new Interest { Name = "Individual & Family Services", InterestGroupID = 26, InterestID = 237 },
+                new Interest { Name = "Individual & Family Services", InterestGroupID = 28, InterestID = 238 },
+
+                new Interest { Name = "Industrial Automation", InterestGroupID = 16, InterestID = 239 },
+                new Interest { Name = "Industrial Automation", InterestGroupID = 24, InterestID = 240 },
+
+                new Interest { Name = "Information Services", InterestGroupID = 25, InterestID = 241 },
+                new Interest { Name = "Information Services", InterestGroupID = 28, InterestID = 242 },
+
+                new Interest { Name = "International Trade and Development", InterestGroupID = 21, InterestID = 243 },
+                new Interest { Name = "International Trade and Development", InterestGroupID = 26, InterestID = 244 },
+                new Interest { Name = "International Trade and Development", InterestGroupID = 30, InterestID = 245 },
+
+                new Interest { Name = "Judiciary", InterestGroupID = 21, InterestID = 246 },
+                new Interest { Name = "Judiciary", InterestGroupID = 23, InterestID = 247 },
+
+                new Interest { Name = "Law Enforcement", InterestGroupID = 21, InterestID = 248 },
+                new Interest { Name = "Law Enforcement", InterestGroupID = 23, InterestID = 249 },
+
+                new Interest { Name = "Legislative Office", InterestGroupID = 21, InterestID = 250 },
+                new Interest { Name = "Legislative Office", InterestGroupID = 23, InterestID = 251 },
+
+                new Interest { Name = "Leisure, Travel & Tourism", InterestGroupID = 27, InterestID = 252 },
+                new Interest { Name = "Leisure, Travel & Tourism", InterestGroupID = 28, InterestID = 253 },
+                new Interest { Name = "Leisure, Travel & Tourism", InterestGroupID = 30, InterestID = 254 },
+
+                new Interest { Name = "Libraries", InterestGroupID = 22, InterestID = 255 },
+                new Interest { Name = "Libraries", InterestGroupID = 22, InterestID = 256 },
+                new Interest { Name = "Libraries", InterestGroupID = 22, InterestID = 257 },
+
+                new Interest { Name = "Logistics and Supply Chain", InterestGroupID = 18, InterestID = 258 },
+                new Interest { Name = "Logistics and Supply Chain", InterestGroupID = 30, InterestID = 259 },
+
+                new Interest { Name = "Marketing and Advertising", InterestGroupID = 18, InterestID = 260 },
+                new Interest { Name = "Marketing and Advertising", InterestGroupID = 25, InterestID = 261 },
+
+                new Interest { Name = "Mechanical or Industrial Engineering", InterestGroupID = 16, InterestID = 262 },
+                new Interest { Name = "Mechanical or Industrial Engineering", InterestGroupID = 21, InterestID = 263 },
+                new Interest { Name = "Mechanical or Industrial Engineering", InterestGroupID = 24, InterestID = 264 },
+
+                new Interest { Name = "Media Production", InterestGroupID = 25, InterestID = 265 },
+                new Interest { Name = "Media Production", InterestGroupID = 27, InterestID = 266 },
+
+                new Interest { Name = "Motion Pictures and Film", InterestGroupID = 15, InterestID = 267 },
+                new Interest { Name = "Motion Pictures and Film", InterestGroupID = 25, InterestID = 268 },
+                new Interest { Name = "Motion Pictures and Film", InterestGroupID = 27, InterestID = 269 },
+
+                new Interest { Name = "Museums and Institutions", InterestGroupID = 15, InterestID = 270 },
+                new Interest { Name = "Museums and Institutions", InterestGroupID = 25, InterestID = 271 },
+                new Interest { Name = "Museums and Institutions", InterestGroupID = 27, InterestID = 272 },
+
+                new Interest { Name = "Music", InterestGroupID = 15, InterestID = 273 },
+                new Interest { Name = "Music", InterestGroupID = 27, InterestID = 274 },
+
+                new Interest { Name = "Nanotechnology", InterestGroupID = 21, InterestID = 275 },
+                new Interest { Name = "Nanotechnology", InterestGroupID = 24, InterestID = 276 },
+                new Interest { Name = "Nanotechnology", InterestGroupID = 29, InterestID = 277 },
+
+                new Interest { Name = "Newspapers", InterestGroupID = 25, InterestID = 278 },
+                new Interest { Name = "Newspapers", InterestGroupID = 27, InterestID = 279 },
+
+                new Interest { Name = "Package/Freight Delivery", InterestGroupID = 28, InterestID = 280 },
+                new Interest { Name = "Package/Freight Delivery", InterestGroupID = 30, InterestID = 281 },
+
+                new Interest { Name = "Packaging and Containers", InterestGroupID = 17, InterestID = 282 },
+                new Interest { Name = "Packaging and Containers", InterestGroupID = 24, InterestID = 283 },
+
+                new Interest { Name = "Performing Arts", InterestGroupID = 15, InterestID = 284 },
+                new Interest { Name = "Performing Arts", InterestGroupID = 25, InterestID = 285 },
+                new Interest { Name = "Performing Arts", InterestGroupID = 27, InterestID = 286 },
+
+                new Interest { Name = "Pharmaceuticals", InterestGroupID = 22, InterestID = 287 },
+                new Interest { Name = "Pharmaceuticals", InterestGroupID = 29, InterestID = 288 },
+
+                new Interest { Name = "Photography", InterestGroupID = 15, InterestID = 289 },
+                new Interest { Name = "Photography", InterestGroupID = 25, InterestID = 290 },
+                new Interest { Name = "Photography", InterestGroupID = 27, InterestID = 291 },
+
+                new Interest { Name = "Political Organization", InterestGroupID = 21, InterestID = 292 },
+                new Interest { Name = "Political Organization", InterestGroupID = 26, InterestID = 293 },
+
+                new Interest { Name = "Printing", InterestGroupID = 25, InterestID = 294 },
+                new Interest { Name = "Printing", InterestGroupID = 27, InterestID = 295 },
+
+                new Interest { Name = "Program Development", InterestGroupID = 18, InterestID = 296 },
+                new Interest { Name = "Program Development", InterestGroupID = 26, InterestID = 297 },
+
+                new Interest { Name = "Publishing", InterestGroupID = 25, InterestID = 298 },
+                new Interest { Name = "Publishing", InterestGroupID = 27, InterestID = 299 },
+
+                new Interest { Name = "Real Estate", InterestGroupID = 16, InterestID = 300 },
+                new Interest { Name = "Real Estate", InterestGroupID = 20, InterestID = 301 },
+                new Interest { Name = "Real Estate", InterestGroupID = 17, InterestID = 302 },
+
+                new Interest { Name = "Recreational Facilities and Services", InterestGroupID = 27, InterestID = 303 },
+                new Interest { Name = "Recreational Facilities and Services", InterestGroupID = 28, InterestID = 304 },
+
+                new Interest { Name = "Religious Institutions", InterestGroupID = 26, InterestID = 305 },
+                new Interest { Name = "Religious Institutions", InterestGroupID = 28, InterestID = 306 },
+
+                new Interest { Name = "Renewables & Environment", InterestGroupID = 21, InterestID = 307 },
+                new Interest { Name = "Renewables & Environment", InterestGroupID = 24, InterestID = 308 },
+                new Interest { Name = "Renewables & Environment", InterestGroupID = 26, InterestID = 309 },
+
+                new Interest { Name = "Research", InterestGroupID = 19, InterestID = 310 },
+                new Interest { Name = "Research", InterestGroupID = 21, InterestID = 311 },
+
+                new Interest { Name = "Restaurants", InterestGroupID = 27, InterestID = 312 },
+                new Interest { Name = "Restaurants", InterestGroupID = 28, InterestID = 313 },
+
+                new Interest { Name = "Retail", InterestGroupID = 17, InterestID = 314 },
+                new Interest { Name = "Retail", InterestGroupID = 24, InterestID = 315 },
+
+                new Interest { Name = "Security and Investigations", InterestGroupID = 18, InterestID = 316 },
+                new Interest { Name = "Security and Investigations", InterestGroupID = 26, InterestID = 317 },
+                new Interest { Name = "Security and Investigations", InterestGroupID = 28, InterestID = 318 },
+
+                new Interest { Name = "Sporting Goods", InterestGroupID = 17, InterestID = 319 },
+                new Interest { Name = "Sporting Goods", InterestGroupID = 27, InterestID = 320 },
+
+                new Interest { Name = "Telecommunications", InterestGroupID = 21, InterestID = 321 },
+                new Interest { Name = "Telecommunications", InterestGroupID = 29, InterestID = 322 },
+
+                new Interest { Name = "Think Tanks", InterestGroupID = 21, InterestID = 323 },
+                new Interest { Name = "Think Tanks", InterestGroupID = 26, InterestID = 324 },
+
+                new Interest { Name = "Translation and Localization", InterestGroupID = 18, InterestID = 325 },
+                new Interest { Name = "Translation and Localization", InterestGroupID = 21, InterestID = 326 },
+                new Interest { Name = "Translation and Localization", InterestGroupID = 28, InterestID = 327 },
+
+                new Interest { Name = "Venture Capital & Private Equity", InterestGroupID = 20, InterestID = 328 },
+                new Interest { Name = "Venture Capital & Private Equity", InterestGroupID = 29, InterestID = 329 },
+
+                new Interest { Name = "Wine and Spirits", InterestGroupID = 17, InterestID = 330 },
+                new Interest { Name = "Wine and Spirits", InterestGroupID = 24, InterestID = 331 },
+                new Interest { Name = "Wine and Spirits", InterestGroupID = 27, InterestID = 332 },
+
+                new Interest { Name = "Writing and Editing", InterestGroupID = 15, InterestID = 333 },
+                new Interest { Name = "Writing and Editing", InterestGroupID = 25, InterestID = 334 },
+                new Interest { Name = "Writing and Editing", InterestGroupID = 27, InterestID = 335 }
+                
                 );
         }
     }

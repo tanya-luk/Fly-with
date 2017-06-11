@@ -19,7 +19,7 @@ namespace FlyWith.Controllers
             var person = db.PersonalDetails.FirstOrDefault(e => (e.AspNetUserId.Equals(currentUserId)));
             if (person != null)
                 return Redirect("PersonalDetails/Details/" + person.PersonalDetailsID);
-            return Redirect("Home");
+            return Redirect("PersonalDetails/Create");
             //var personalDetails = db.PersonalDetails.Include(p => p.AspNetUser).Include(p => p.Country).Include(p => p.MealType).Include(p => p.Occupation).Include(p => p.Sex);
             //return View(personalDetails.ToList());
         }

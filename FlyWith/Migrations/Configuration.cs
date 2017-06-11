@@ -31,9 +31,9 @@ namespace FlyWith.Migrations
 
             //addidng all the 
             context.Countries.AddOrUpdate(c => new { c.Name, c.CountryID },
-              
 
-                new Country { Name = "Afghanistan",  CountryID = 1 },
+
+                new Country { Name = "Afghanistan", CountryID = 1 },
                 new Country { Name = "Albania", CountryID = 2 },
                 new Country { Name = "Algeria", CountryID = 3 },
                 new Country { Name = "Andorra", CountryID = 4 },
@@ -130,7 +130,7 @@ namespace FlyWith.Migrations
                 new Country { Name = "Laos", CountryID = 95 },
                 new Country { Name = "Latvia", CountryID = 96 },
                 new Country { Name = "Lebanon", CountryID = 97 },
-                new Country { Name = "Lesotho", CountryID = 98},
+                new Country { Name = "Lesotho", CountryID = 98 },
                 new Country { Name = "Liberia", CountryID = 99 },
                 new Country { Name = "Libya", CountryID = 100 },
                 new Country { Name = "Liechtenstein", CountryID = 101 },
@@ -236,9 +236,9 @@ namespace FlyWith.Migrations
 
              );
 
-            context.Sexes.AddOrUpdate(s => new { s.Name, s.SexID},
+            context.Sexes.AddOrUpdate(s => new { s.Name, s.SexID },
 
-                new Sex { Name = "Female",SexID = 1 },
+                new Sex { Name = "Female", SexID = 1 },
                 new Sex { Name = "Male", SexID = 2 }
              );
 
@@ -250,7 +250,7 @@ namespace FlyWith.Migrations
               new DoInFlight { Name = "Silence", DoInFlightID = 4 }
 
               );
-            context.InterestGroups.AddOrUpdate(i => new { i.Name, i.InterestGroupID},
+            context.InterestGroups.AddOrUpdate(i => new { i.Name, i.InterestGroupID },
 
                 new InterestGroup { InterestGroupID = 1, Name = "Arts" },
                 new InterestGroup { InterestGroupID = 2, Name = "Performances" },
@@ -265,7 +265,7 @@ namespace FlyWith.Migrations
                 new InterestGroup { InterestGroupID = 11, Name = "Travel" },
                 new InterestGroup { InterestGroupID = 12, Name = "News" },
                 new InterestGroup { InterestGroupID = 13, Name = "Science" },
-                
+
                 //linkedin groups
                 new InterestGroup { InterestGroupID = 14, Name = "Agriculture" },
                 new InterestGroup { InterestGroupID = 15, Name = "Art" },
@@ -284,17 +284,17 @@ namespace FlyWith.Migrations
                 new InterestGroup { InterestGroupID = 28, Name = "Services" },
                 new InterestGroup { InterestGroupID = 29, Name = "Technology" },
                 new InterestGroup { InterestGroupID = 30, Name = "Transportation" }
-                
+
               );
 
             context.LanguageLevels.AddOrUpdate(l => new { l.Name, l.LanguageLevelID },
 
                 new LanguageLevel { Name = "Native", LanguageLevelID = 1 },
-                new LanguageLevel { Name = "Fluent", LanguageLevelID = 2}
+                new LanguageLevel { Name = "Fluent", LanguageLevelID = 2 }
 
              );
 
-            context.Levels.AddOrUpdate(l => new { l.Name, l.LevelID },
+            context.Levels.AddOrUpdate(l => new { l.LevelID, l.Name },
                 new Level { LevelID = 0, Name = "0" },
                 new Level { LevelID = 1, Name = "1" },
                 new Level { LevelID = 2, Name = "2" },
@@ -330,7 +330,7 @@ namespace FlyWith.Migrations
             context.YesNoAnswers.AddOrUpdate(y => new { y.Name, y.YesNoAnswerID },
 
                 new YesNoAnswer { Name = "Yes", YesNoAnswerID = 1 },
-                new YesNoAnswer { Name = "No", YesNoAnswerID =2 }
+                new YesNoAnswer { Name = "No", YesNoAnswerID = 2 }
 
               );
 
@@ -354,8 +354,8 @@ namespace FlyWith.Migrations
 
             context.Languages.AddOrUpdate(l => new { l.Name, l.LanguageID },
 
-                new Language { Name = "Afrikaans", LanguageID = 1},
-                new Language { Name = "Albanian", LanguageID = 2 }, 
+                new Language { Name = "Afrikaans", LanguageID = 1 },
+                new Language { Name = "Albanian", LanguageID = 2 },
                 new Language { Name = "Amharic", LanguageID = 3 },
                 new Language { Name = "Arabic", LanguageID = 4 },
                 new Language { Name = "Armenian", LanguageID = 5 },
@@ -423,7 +423,7 @@ namespace FlyWith.Migrations
                 new Language { Name = "Tibetan", LanguageID = 67 },
                 new Language { Name = "Tigrinya", LanguageID = 68 },
                 new Language { Name = "Tongan", LanguageID = 69 },
-                new Language { Name = "Turkish", LanguageID = 70},
+                new Language { Name = "Turkish", LanguageID = 70 },
                 new Language { Name = "Turkmen", LanguageID = 71 },
                 new Language { Name = "Ucrainian", LanguageID = 72 },
                 new Language { Name = "Urdu", LanguageID = 73 },
@@ -433,10 +433,10 @@ namespace FlyWith.Migrations
 
                 );
 
-            context.Interests.AddOrUpdate(i => new { i.Name, i.InterestGroupID,i.InterestID },
+            context.Interests.AddOrUpdate(i => new { i.Name, i.InterestGroupID, i.InterestID },
 
                 //arts group
-                new Interest { Name = "Architecture", InterestGroupID = 1,InterestID = 1 },
+                new Interest { Name = "Architecture", InterestGroupID = 1, InterestID = 1 },
                 new Interest { Name = "Conceptual", InterestGroupID = 1, InterestID = 2 },
                 new Interest { Name = "Crafts", InterestGroupID = 1, InterestID = 3 },
                 new Interest { Name = "Drawing", InterestGroupID = 1, InterestID = 4 },
@@ -464,14 +464,14 @@ namespace FlyWith.Migrations
                 new Interest { Name = "Poetry", InterestGroupID = 3, InterestID = 25 },
                 new Interest { Name = "Shortstories", InterestGroupID = 3, InterestID = 26 },
 
-               
+
                 //fashion group
                 new Interest { Name = "Accessories", InterestGroupID = 4, InterestID = 8 },
                 new Interest { Name = "Clothing", InterestGroupID = 4, InterestID = 9 },
                 new Interest { Name = "Footwear", InterestGroupID = 4, InterestID = 10 },
                 new Interest { Name = "Home", InterestGroupID = 4, InterestID = 11 },
 
-               
+
                 //food group
                 new Interest { Name = "Cooking", InterestGroupID = 5, InterestID = 27 },
                 new Interest { Name = "Eating out", InterestGroupID = 5, InterestID = 28 },
@@ -554,7 +554,7 @@ namespace FlyWith.Migrations
                 new Interest { Name = "Medicine", InterestGroupID = 13, InterestID = 89 },
                 new Interest { Name = "Physics", InterestGroupID = 13, InterestID = 90 },
 
-               //linkedin interests with 1 category
+                //linkedin interests with 1 category
                 new Interest { Name = "Alternative Medicine", InterestGroupID = 22, InterestID = 91 },
                 new Interest { Name = "Apparel & Fashion", InterestGroupID = 17, InterestID = 92 },
                 new Interest { Name = "Architecture & Planning", InterestGroupID = 16, InterestID = 93 },
@@ -627,13 +627,13 @@ namespace FlyWith.Migrations
                 new Interest { Name = "Warehousing", InterestGroupID = 30, InterestID = 159 },
                 new Interest { Name = "Wholesale", InterestGroupID = 17, InterestID = 160 },
                 new Interest { Name = "Wireless", InterestGroupID = 29, InterestID = 161 },
-                
+
                 //Interests with more then 1 category           
                 new Interest { Name = "Accounting", InterestGroupID = 18, InterestID = 162 },
                 new Interest { Name = "Accounting", InterestGroupID = 20, InterestID = 163 },
 
                 new Interest { Name = "Airlines/Aviation", InterestGroupID = 24, InterestID = 164 },
-                new Interest { Name = "Airlines/Aviation", InterestGroupID = 29, InterestID = 165},
+                new Interest { Name = "Airlines/Aviation", InterestGroupID = 29, InterestID = 165 },
                 new Interest { Name = "Airlines/Aviation", InterestGroupID = 30, InterestID = 166 },
 
                 new Interest { Name = "Alternative Dispute Resolution", InterestGroupID = 23, InterestID = 167 },
@@ -877,7 +877,7 @@ namespace FlyWith.Migrations
                 new Interest { Name = "Writing and Editing", InterestGroupID = 15, InterestID = 333 },
                 new Interest { Name = "Writing and Editing", InterestGroupID = 25, InterestID = 334 },
                 new Interest { Name = "Writing and Editing", InterestGroupID = 27, InterestID = 335 }
-                
+
                 );
         }
     }

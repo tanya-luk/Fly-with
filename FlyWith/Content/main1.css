@@ -1,0 +1,13 @@
+﻿body{
+    background-image: url(../Content/images/5.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h2{
+    color:blue;
+}
+
+.par{
+    font-size: 25px
+}

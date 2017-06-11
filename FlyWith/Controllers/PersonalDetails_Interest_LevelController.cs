@@ -36,9 +36,10 @@ namespace FlyWith.Controllers
                             LevelID = levelId.First()
                         };
                         db.PersonalDetails_Interest_Level.Add(record);
+                        db.SaveChanges();
                     }
                 }
-                db.SaveChanges();
+                
             }
             ViewBag.Categories = db.InterestGroups.ToList();
             var personalDetails_Interest_Level = db.PersonalDetails_Interest_Level.Include(p => p.Interest).Include(p => p.Level).Include(p => p.PersonalDetails);

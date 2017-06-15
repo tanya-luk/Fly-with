@@ -1,5 +1,5 @@
 ﻿body {
-background-image: url(../Content/images/5.jpg);
+background-image: url(../Content/images/1.jpg);
 background-repeat:no-repeat;
 background-size:cover;
 }
@@ -7,4 +7,7 @@ background-size:cover;
 h1{
     color:white;
 }
-
+h2 {
+    text-align: right;
+}
+     

@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Spoken languages level </h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -13,42 +13,27 @@
 <table class="table">
     @foreach (var item in ViewBag.Languages)
     {
-        <tr>
-            <th>
-                <h2>@Html.Raw(item.Name)</h2>
-            </th>
-        </tr>
-        <tr>
-            
-            <th>
-                @Html.DisplayNameFor(model => model.LanguageLevel.Name)
-            </th>
-            <th></th>
-        </tr>
+
         foreach (var item1 in Model)
         {
 
-            if (item.LanguageID == item1.LanguageID)
-            {
-
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item1.Language.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item1.LanguageLevel.Name)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { PersonalDetailsID = item1.PersonalDetailsID, LanguageID = item1.LanguageID}) |
-                        @Html.ActionLink("Details", "Details", new { PersonalDetailsID = item1.PersonalDetailsID, LanguageID = item1.LanguageID }) |
-                        @Html.ActionLink("Delete", "Delete", new { PersonalDetailsID = item1.PersonalDetailsID, LanguageID = item1.LanguageID })
-                    </td>
-                </tr>
-
-            }
-        }
-        <tr></tr>
-        <tr></tr>
+         if (item.LanguageID == item1.LanguageID)
+         {
+            <tr>
+                <td>
+                 @Html.DisplayFor(modelItem => item1.Language.Name)
+                </td>
+                <td>
+                     @Html.DisplayFor(modelItem => item1.LanguageLevel.Name)
+                </td>
+                <td>
+                 @Html.ActionLink("Edit", "Edit", new { PersonalDetailsID = item1.PersonalDetailsID, LanguageID = item1.LanguageID }) |
+                 @Html.ActionLink("Delete", "Delete", new { PersonalDetailsID = item1.PersonalDetailsID, LanguageID = item1.LanguageID })
+                </td>
+            </tr>
+          }
+       }
+  
     }
 </table>
 

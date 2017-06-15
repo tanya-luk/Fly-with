@@ -371,8 +371,6 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\external\jquery\jquery.js" />
     <Content Include="Content\images\1.jpg" />
-    <Content Include="Content\images\2.jpg" />
-    <Content Include="Content\images\5.jpg" />
     <Content Include="Content\images\7.jpg" />
     <Content Include="Content\images\background.jpg" />
     <Content Include="Content\images\logo.png" />

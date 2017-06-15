@@ -26,14 +26,15 @@
             @if (User.Identity.IsAuthenticated)
             {
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Personal Details", "Index", " PersonalDetails")</li>
+                    <li>@Html.ActionLink("Personal Details", "Index", "PersonalDetails")</li>
                     <li>@Html.ActionLink("Flight-mood", "Index", "PesonalDetail_DoInFlight_YesNoAnswer")</li>
                     <li>@Html.ActionLink("Seating Prefarations", "Index", "PersonalDetails_SeatingPosition_YesNOAnswer")</li>
-                    <li>@Html.ActionLink("Spoken languages", "Create", "PersonalDetails_Language_LanguageLevel")</li>
+                    <li>@Html.ActionLink("Spoken languages", "Index", "PersonalDetails_Language_LanguageLevel")</li>
                     <li>@Html.ActionLink("Interests level", "Index", "PersonalDetails_Interest_Level")</li>
                    
                 </ul>
                 @Html.Partial("_LoginPartial")
+
             }
             else
             {

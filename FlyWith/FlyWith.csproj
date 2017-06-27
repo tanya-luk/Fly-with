@@ -219,13 +219,11 @@
     <Compile Include="Controllers\LanguageLevelsController.cs" />
     <Compile Include="Controllers\LevelsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\MealTypes1Controller.cs" />
     <Compile Include="Controllers\MealTypesController.cs" />
     <Compile Include="Controllers\OccupationsController.cs" />
     <Compile Include="Controllers\PersonalDetailsController.cs" />
     <Compile Include="Controllers\PersonalDetails_Interest_LevelController.cs" />
     <Compile Include="Controllers\PersonalDetails_Language_LanguageLevelController.cs" />
-    <Compile Include="Controllers\PersonalDetails_SeatingPosition_YesNOAnswer1Controller.cs" />
     <Compile Include="Controllers\PersonalDetails_SeatingPosition_YesNOAnswerController.cs" />
     <Compile Include="Controllers\PesonalDetail_DoInFlight_YesNoAnswerController.cs" />
     <Compile Include="Controllers\SeatingPositionsController.cs" />
@@ -491,11 +489,6 @@
     <Content Include="Views\PersonalDetails_Language_LanguageLevel\Details.cshtml" />
     <Content Include="Views\PersonalDetails_Language_LanguageLevel\Edit.cshtml" />
     <Content Include="Views\PersonalDetails_Language_LanguageLevel\Index.cshtml" />
-    <Content Include="Views\MealTypes1\Create.cshtml" />
-    <Content Include="Views\MealTypes1\Delete.cshtml" />
-    <Content Include="Views\MealTypes1\Details.cshtml" />
-    <Content Include="Views\MealTypes1\Edit.cshtml" />
-    <Content Include="Views\MealTypes1\Index.cshtml" />
     <Content Include="Views\Languages\Create.cshtml" />
     <Content Include="Views\Languages\Delete.cshtml" />
     <Content Include="Views\Languages\Details.cshtml" />

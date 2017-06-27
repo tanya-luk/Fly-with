@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace FlyWith.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "User")]
     public class PersonalDetails_Interest_LevelController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -19,6 +19,10 @@ namespace FlyWith.Controllers
             string currentUserId = User.Identity.GetUserId();
             ApplicationUser currentUser = db.Users.FirstOrDefault(x => x.Id == currentUserId);
             var person = db.PersonalDetails.FirstOrDefault(e => (e.AspNetUserId.Equals(currentUserId)));
+            if (currentUserId == null)
+                return Redirect("/Account/Login");
+            if (person == null)
+                return RedirectToAction("Create", "PersonalDetails");
             var interests = db.Interests.Select(i=>i.InterestID).ToList();
             var levelId = db.Levels.Where(l=>l.Name.Equals("0")).Select(l => l.LevelID);
             if (interests.ToList().Count > 0)

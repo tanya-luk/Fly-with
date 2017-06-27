@@ -5,16 +5,6 @@
 }
 <link href='@Url.Content("~/Content/jquery-ui.css")' rel="stylesheet" type="text/css" />
 
-<style>
-    #custom-handle {
-        width: 3em;
-        height: 1.6em;
-        top: 50%;
-        margin-top: -.8em;
-        text-align: center;
-        line-height: 1.6em;
-    }
-</style>
 
 
 
@@ -34,20 +24,21 @@
                 collapsible: true,
                 heightStyle: "content"   //auto, fill, content
             });
+
         });
+
+        //function update(id) {
+        //    $.ajax({
+        //        type: 'POST',
+        //        url: Your/Action,
+        //        data: { document.getElementById("mySelect").value },
+        //        success: success,
+        //        dataType: 'json'
+        //    });
+        //}
+
+
     </script>
-    <script>
-        $(function () {
-            var handle = $("#custom-handle");
-            $("div.slider").slider({
-                create: function () {
-                    handle.text($(this).slider("value"));
-                },
-                slide: function (event, ui) {
-                    handle.text(ui.value);
-                }
-            });
-        });</script>
     <script src='@Url.Content("~/Scripts/jquery-3.1.1.min.js")' type="text/javascript"></script>
     <script src='@Url.Content("~/Scripts/jquery-ui.js")' type="text/javascript"></script>
 }
@@ -57,6 +48,9 @@
 
 
 <div id="accordion">
+    @{
+       
+    }
     @foreach (var item in ViewBag.Categories)
     {
 
@@ -76,22 +70,47 @@
                 </tr>
                 @foreach (var item1 in Model)
                 {
-                    int i = 0;
-                        if (item.InterestGroupID == item1.Interest.InterestGroupID)
-                        {
+
+                    if (item.InterestGroupID == item1.Interest.InterestGroupID)
+                    {
 
                         <tr>
                             <td>
                                 @Html.DisplayFor(modelItem => item1.Interest.Name)
                             </td>
-                            <td>
-                                <div id="slider">
-                                    <div id="custom-handle" class="ui-slider-handle"></div>
-                                </div>
-                            </td>
+
                             @*<td>
-                                    @Html.DisplayFor(modelItem => item1.Level.Name)
+
+
+                                        <div class="center">
+
+                                            <div class="input-group">
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-danger btn-number" data-type="minus" data-field="quant[@i]">
+                                                        <span class="glyphicon glyphicon-minus"></span>
+                                                    </button>
+                                                </span>
+                                                <input type="text" name="quant[@i]" class="form-control input-number" value= @Html.DisplayFor(modelItem => item1.Level.Name) min="0" max="10">
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant[@i]">
+                                                        <span class="glyphicon glyphicon-plus"></span>
+                                                    </button>
+                                                </span>
+                                            </div>
+
+                                        </div>
+
+
                                 </td>*@
+                            
+                            <td>
+                                @Html.DisplayFor(modelItem => item1.Level.Name)
+                            </td>
+                            <td>
+                            @Html.ActionLink("Edit", "Edit", new { PersonalDetailsID = item1.PersonalDetailsID, InterestID = item1.InterestID })
+                            @*<input type="number" id="edit_@i" value= @Html.DisplayFor(modelItem => item1.Level.Name) onchange="update(@item1.LevelID)" min="0" max="10">*@
+                            </td>
+
                             <td>
 
 
@@ -100,9 +119,9 @@
                                     @Html.ActionLink("Delete", "Delete", new { PersonalDetailsID = item1.PersonalDetailsID, InterestID = item1.InterestID })*@
                             </td>
                         </tr>
-
+                     
                     }
-                    i++;
+
                 }
 
             </table>

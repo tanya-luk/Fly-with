@@ -1,4 +1,5 @@
-﻿using Microsoft.Owin;
+﻿using FlyWith;
+using Microsoft.Owin;
 using Owin;
 
 [assembly: OwinStartupAttribute(typeof(FlyWith.Startup))]
@@ -9,6 +10,7 @@ namespace FlyWith
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
+           
         }
     }
 }

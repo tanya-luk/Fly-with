@@ -17,11 +17,19 @@ namespace FlyWith.Controllers
             string currentUserId = User.Identity.GetUserId();
             ApplicationUser currentUser = db.Users.FirstOrDefault(x => x.Id == currentUserId);
             var person = db.PersonalDetails.FirstOrDefault(e => (e.AspNetUserId.Equals(currentUserId)));
+            var personalDetails = db.PersonalDetails.Include(p => p.AspNetUser).Include(p => p.Country).Include(p => p.MealType).Include(p => p.Occupation).Include(p => p.Sex);
+            if (currentUserId == null)
+                return Redirect("/Account/Login");
             if (person != null)
-                return Redirect("PersonalDetails/Details/" + person.PersonalDetailsID);
-            return Redirect("PersonalDetails/Create");
-            //var personalDetails = db.PersonalDetails.Include(p => p.AspNetUser).Include(p => p.Country).Include(p => p.MealType).Include(p => p.Occupation).Include(p => p.Sex);
-            //return View(personalDetails.ToList());
+                if (User.IsInRole("Admin"))
+                {
+                    return View(personalDetails.ToList());
+                }
+                else
+                    return Redirect("PersonalDetails/Details/" + person.PersonalDetailsID);
+            return RedirectToAction("Create");
+         
+            
         }
 
         // GET: PersonalDetails/Details/5
@@ -102,6 +110,8 @@ namespace FlyWith.Controllers
         {
             if (ModelState.IsValid)
             {
+                string currentUserId = User.Identity.GetUserId();
+                personalDetails.AspNetUserId = currentUserId;
                 db.Entry(personalDetails).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -111,7 +121,7 @@ namespace FlyWith.Controllers
             ViewBag.MealTypeID = new SelectList(db.MealTypes, "MealTypeID", "Name", personalDetails.MealTypeID);
             ViewBag.OccupationID = new SelectList(db.Occupations, "OccupationID", "Name", personalDetails.OccupationID);
             ViewBag.SexID = new SelectList(db.Sexes, "SexID", "Name", personalDetails.SexID);
-            return View(personalDetails);
+            return RedirectToAction("Index");
         }
 
         // GET: PersonalDetails/Delete/5

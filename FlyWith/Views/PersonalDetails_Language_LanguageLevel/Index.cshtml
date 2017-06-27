@@ -3,41 +3,43 @@
 @{
     ViewBag.Title = "Index";
 }
+<link rel="stylesheet" href="~/Content/main1.css" />
+<body>
 
-<h2>Spoken languages level </h2>
+    <h2>Spoken languages level </h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
 
-<table class="table">
-    @foreach (var item in ViewBag.Languages)
-    {
-
-        foreach (var item1 in Model)
+    <table class="table">
+        @foreach (var item in ViewBag.Languages)
         {
 
-         if (item.LanguageID == item1.LanguageID)
-         {
-            <tr>
-                <td>
-                 @Html.DisplayFor(modelItem => item1.Language.Name)
-                </td>
-                <td>
-                     @Html.DisplayFor(modelItem => item1.LanguageLevel.Name)
-                </td>
-                <td>
-                 @Html.ActionLink("Edit", "Edit", new { PersonalDetailsID = item1.PersonalDetailsID, LanguageID = item1.LanguageID }) |
-                 @Html.ActionLink("Delete", "Delete", new { PersonalDetailsID = item1.PersonalDetailsID, LanguageID = item1.LanguageID })
-                </td>
-            </tr>
-          }
-       }
-  
-    }
-</table>
+            foreach (var item1 in Model)
+            {
 
+                if (item.LanguageID == item1.LanguageID)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item1.Language.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item1.LanguageLevel.Name)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { PersonalDetailsID = item1.PersonalDetailsID, LanguageID = item1.LanguageID }) |
+                            @Html.ActionLink("Delete", "Delete", new { PersonalDetailsID = item1.PersonalDetailsID, LanguageID = item1.LanguageID })
+                        </td>
+                    </tr>
+                }
+            }
 
+        }
+    </table>
+
+</body>
 @*<table class="table">
         <tr>
             <th>

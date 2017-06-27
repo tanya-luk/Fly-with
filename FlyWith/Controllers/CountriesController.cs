@@ -7,16 +7,26 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using FlyWith.Models;
+using Microsoft.AspNet.Identity;
 
 namespace FlyWith.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CountriesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        
         // GET: Countries
         public ActionResult Index()
         {
+            string currentUserId = User.Identity.GetUserId();
+            ApplicationUser currentUser = db.Users.FirstOrDefault(x => x.Id == currentUserId);
+            var person = db.PersonalDetails.FirstOrDefault(e => (e.AspNetUserId.Equals(currentUserId)));
+            if (currentUserId == null)
+                return Redirect("/Account/Login");
+            if (person == null)
+                return RedirectToAction("Create", "PersonalDetails");
             return View(db.Countries.ToList());
         }
 

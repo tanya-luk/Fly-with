@@ -25,35 +25,39 @@
             </div>
             @if (User.Identity.IsAuthenticated)
             {
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Personal Details", "Index", "PersonalDetails")</li>
-                    <li>@Html.ActionLink("Flight-mood", "Index", "PesonalDetail_DoInFlight_YesNoAnswer")</li>
-                    <li>@Html.ActionLink("Seating Prefarations", "Index", "PersonalDetails_SeatingPosition_YesNOAnswer")</li>
-                    <li>@Html.ActionLink("Spoken languages", "Index", "PersonalDetails_Language_LanguageLevel")</li>
-                    <li>@Html.ActionLink("Interests level", "Index", "PersonalDetails_Interest_Level")</li>
-                   
-                </ul>
-                @Html.Partial("_LoginPartial")
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Personal Details", "Index", "PersonalDetails")</li>
+                        <li>@Html.ActionLink("Flight-mood", "Index", "PesonalDetail_DoInFlight_YesNoAnswer")</li>
+                        <li>@Html.ActionLink("Seating Prefarations", "Index", "PersonalDetails_SeatingPosition_YesNOAnswer")</li>
+                        <li>@Html.ActionLink("Spoken languages", "Index", "PersonalDetails_Language_LanguageLevel")</li>
+                        <li>@Html.ActionLink("Interests level", "Index", "PersonalDetails_Interest_Level")</li>
+
+
+                    </ul>
+
+                    @Html.Partial("_LoginPartial")
+                </div>
 
             }
             else
             {
-                <div class="navbar-collapse collapse">
-                    
-                       
-                    <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
-                    </ul>
-                    
-                    @Html.Partial("_LoginPartial")
+                    <div class="navbar-collapse collapse">
+
+
+                        <ul class="nav navbar-nav">
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("About", "About", "Home")</li>
+                            <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
+                        </ul>
+
+                        @Html.Partial("_LoginPartial")
+                    </div>
+
+
+                    }
+
                 </div>
-
-
-            }
-
-        </div>
     </div>
 
 

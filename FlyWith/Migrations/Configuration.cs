@@ -1,5 +1,7 @@
 namespace FlyWith.Migrations
 {
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
     using Models;
     using System;
     using System.Data.Entity;
@@ -13,6 +15,10 @@ namespace FlyWith.Migrations
             AutomaticMigrationsEnabled = true;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="context"></param>
         protected override void Seed(FlyWith.Models.ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
@@ -29,7 +35,36 @@ namespace FlyWith.Migrations
             //
 
 
-            //addidng all the 
+
+
+
+            //creating roles for the project
+            if (!context.Roles.Any(r=> r.Name=="Admin"))
+            {
+
+                var store = new RoleStore<IdentityRole>(context);
+                var manager = new RoleManager<IdentityRole>(store);
+                var role = new IdentityRole { Name = "Admin" };
+                manager.Create(role);
+                
+            }
+
+            if (!context.Roles.Any(r => r.Name == "User"))
+            {
+
+                var store = new RoleStore<IdentityRole>(context);
+                var manager = new RoleManager<IdentityRole>(store);
+                var role = new IdentityRole { Name = "User" };
+                manager.Create(role);
+
+            }
+
+            var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+            UserManager.AddToRole("0d64e961-1cae-4b5b-b0ec-c40374b81b70", "Admin");
+
+
+
+            //addidng all the data to tables
             context.Countries.AddOrUpdate(c => new { c.Name, c.CountryID },
 
 

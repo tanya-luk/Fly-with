@@ -7,9 +7,11 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using FlyWith.Models;
+using Microsoft.AspNet.Identity;
 
 namespace FlyWith.Controllers
 {
+    [Authorize(Roles = "User")]
     public class PersonalDetails_SeatingPosition_YesNOAnswerController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -17,6 +19,13 @@ namespace FlyWith.Controllers
         // GET: PersonalDetails_SeatingPosition_YesNOAnswer
         public ActionResult Index()
         {
+            string currentUserId = User.Identity.GetUserId();
+            ApplicationUser currentUser = db.Users.FirstOrDefault(x => x.Id == currentUserId);
+            var person = db.PersonalDetails.FirstOrDefault(e => (e.AspNetUserId.Equals(currentUserId)));
+            if (currentUserId == null)
+                return Redirect("/Account/Login");
+            if (person == null)
+                return RedirectToAction("Create", "PersonalDetails");
             ViewBag.SeatingPositions = db.SeatingPositions.ToList();
             var personalDetails_SeatingPosition_YesNOAnswer = db.PersonalDetails_SeatingPosition_YesNOAnswer.Include(p => p.PersonalDetails).Include(p => p.SeatingPosition).Include(p => p.YesNoAnswer);
             return View(personalDetails_SeatingPosition_YesNOAnswer.ToList());

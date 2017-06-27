@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -9,13 +10,23 @@ using System.Web.Mvc;
 
 namespace FlyWith.Models
 {
+    [Authorize(Roles = "Admin")]
+
     public class LanguagesController : Controller
     {
+   
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Languages
         public ActionResult Index()
         {
+            string currentUserId = User.Identity.GetUserId();
+            ApplicationUser currentUser = db.Users.FirstOrDefault(x => x.Id == currentUserId);
+            var person = db.PersonalDetails.FirstOrDefault(e => (e.AspNetUserId.Equals(currentUserId)));
+            if (currentUserId == null)
+                return Redirect("/Account/Login");
+            if (person == null)
+                return RedirectToAction("Create", "PersonalDetails");
             return View(db.Languages.ToList());
         }
 

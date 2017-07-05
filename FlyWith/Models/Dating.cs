@@ -7,6 +7,7 @@ namespace FlyWith.Models
 {
     public class Dating
     {
+        //public int DatingID { get; set; }
         //variables of the dating table
         [Display(Name = "From age")]
         public int FromAge { get; set; }

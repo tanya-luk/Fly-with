@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Edit";
 }
+<link rel="stylesheet" href="~/Content/main1.css" />
 
 <h2>Edit</h2>
 
@@ -20,7 +21,7 @@
         @Html.HiddenFor(model => model.SeatingPositionID)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.YesNoAnswerID, "YesNoAnswerID", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.YesNoAnswerID, "Yes or No Answer", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("YesNoAnswerID", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.YesNoAnswerID, "", new { @class = "text-danger" })

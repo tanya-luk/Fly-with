@@ -27,7 +27,8 @@ namespace FlyWith.Controllers
             if (person == null)
                 return Redirect("PersonalDetails/Create");
             var datings = db.Datings.Include(d => d.PersonalDetails).Include(d => d.Sex);
-            return View(datings.ToList());
+            
+            return RedirectToAction("Index", "PesonalDetail_DoInFlight_YesNoAnswer");
         }
 
         // GET: Datings/Details/5
@@ -62,10 +63,17 @@ namespace FlyWith.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Datings.Add(dating);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                string currentUserId = User.Identity.GetUserId();
+                PersonalDetails person = db.PersonalDetails.Where(p => p.AspNetUserId.Equals(currentUserId)).First();
+               
+                    dating.PersonalDetailsID = person.PersonalDetailsID;
+                    db.Datings.Add(dating);
+                    db.SaveChanges();
+                    return RedirectToAction("Index", "PesonalDetail_DoInFlight_YesNoAnswer");
+                
+                
             }
+
 
             ViewBag.PersonalDetailsID = new SelectList(db.PersonalDetails, "PersonalDetailsID", "FirstName", dating.PersonalDetailsID);
             ViewBag.SexID = new SelectList(db.Sexes, "SexID", "Name", dating.SexID);
@@ -98,48 +106,54 @@ namespace FlyWith.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(dating).State = EntityState.Modified;
+                string currentUserId = User.Identity.GetUserId();
+                PersonalDetails person = db.PersonalDetails.Where(p => p.AspNetUserId.Equals(currentUserId)).First();
+                dating.PersonalDetailsID = person.PersonalDetailsID;
+                db.Datings.Add(dating);
+               db.Entry(dating).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "PesonalDetail_DoInFlight_YesNoAnswer");
+
             }
-            ViewBag.PersonalDetailsID = new SelectList(db.PersonalDetails, "PersonalDetailsID", "FirstName", dating.PersonalDetailsID);
-            ViewBag.SexID = new SelectList(db.Sexes, "SexID", "Name", dating.SexID);
+           
+        ViewBag.PersonalDetailsID = new SelectList(db.PersonalDetails, "PersonalDetailsID", "FirstName", dating.PersonalDetailsID);
+        ViewBag.SexID = new SelectList(db.Sexes, "SexID", "Name", dating.SexID);
             return View(dating);
-        }
-
-        // GET: Datings/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Dating dating = db.Datings.Find(id);
-            if (dating == null)
-            {
-                return HttpNotFound();
-            }
-            return View(dating);
-        }
-
-        // POST: Datings/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Dating dating = db.Datings.Find(id);
-            db.Datings.Remove(dating);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
     }
+
+    // GET: Datings/Delete/5
+    public ActionResult Delete(int? id)
+    {
+        if (id == null)
+        {
+            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        }
+        Dating dating = db.Datings.Find(id);
+        if (dating == null)
+        {
+            return HttpNotFound();
+        }
+        return View(dating);
+    }
+
+    // POST: Datings/Delete/5
+    [HttpPost, ActionName("Delete")]
+    [ValidateAntiForgeryToken]
+    public ActionResult DeleteConfirmed(int id)
+    {
+        Dating dating = db.Datings.Find(id);
+        db.Datings.Remove(dating);
+        db.SaveChanges();
+        return RedirectToAction("Index");
+    }
+
+    protected override void Dispose(bool disposing)
+    {
+        if (disposing)
+        {
+            db.Dispose();
+        }
+        base.Dispose(disposing);
+    }
+}
 }

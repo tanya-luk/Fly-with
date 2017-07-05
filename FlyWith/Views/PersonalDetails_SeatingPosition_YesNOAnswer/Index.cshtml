@@ -3,56 +3,45 @@
 @{
     ViewBag.Title = "Index";
 }
+<link rel="stylesheet" href="~/Content/main1.css" />
 
-<h2>Index</h2>
-
-<p>
+<h2>Seating Positions Prefaration</h2>
+<br>
+@*<p>
     @Html.ActionLink("Create New", "Create")
-</p>
+</p>*@
 
 <table class="table">
     @foreach (var item in ViewBag.SeatingPositions)
     {
-        <tr>
-            <th>
-                <h2>@Html.Raw(item.Name)</h2>
-            </th>
-        </tr>
-        <tr>
-
-            <th>
-                @Html.DisplayNameFor(model => model.YesNoAnswer.Name)
-            </th>
-            <th></th>
-        </tr>
+       
         foreach (var item1 in Model)
         {
 
-            if (item.LanguageID == item1.PersonalDetailsID)
+            if (item.SeatingPositionID == item1.SeatingPositionID)
             {
 
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item1.SeatingPosition.Name)
+                        <h5>@Html.Raw(item.Name)</h5>
+                    </td>
+                    <td style="vertical-align: baseline;"width="30%">
+                        <h5> @Html.DisplayFor(modelItem => item1.YesNoAnswer.Name)</h5>
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item1.YesNoAnswer.Name)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { PersonalDetailsID = item1.PersonalDetailsID, SeatingPOsitionID = item1.SeatingPositionID }) |
-                        @Html.ActionLink("Details", "Details", new { PersonalDetailsID = item1.PersonalDetailsID, SeatingPOsitionID = item1.SeatingPositionID }) |
-                        @Html.ActionLink("Delete", "Delete", new { PersonalDetailsID = item1.PersonalDetailsID, SeatingPOsitionID = item1.SeatingPositionID })
+                        @Html.ActionLink("Edit", "Edit", new { PersonalDetailsID = item1.PersonalDetailsID, SeatingPOsitionID = item1.SeatingPositionID }) 
                     </td>
                 </tr>
 
             }
         }
-        <tr></tr>
-        <tr></tr>
+        @*<tr></tr>
+        <tr></tr>*@
     }
 </table>
 
 
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 

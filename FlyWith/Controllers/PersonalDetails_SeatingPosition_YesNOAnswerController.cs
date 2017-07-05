@@ -26,6 +26,28 @@ namespace FlyWith.Controllers
                 return Redirect("/Account/Login");
             if (person == null)
                 return RedirectToAction("Create", "PersonalDetails");
+            var SeatingPositions = db.SeatingPositions.Select(s => s.SeatingPositionID).ToList();
+            var YesNoAnswer = db.YesNoAnswers.Where(i => i.Name.Equals("No")).Select(i => i.YesNoAnswerID);
+            if (SeatingPositions.ToList().Count > 0)
+            {
+
+                foreach (var inter in SeatingPositions.ToList())
+                {
+                    var exist = db.PersonalDetails_SeatingPosition_YesNOAnswer.Where(p => p.SeatingPositionID.Equals(inter) && p.PersonalDetailsID.Equals(person.PersonalDetailsID)).ToList();
+                    if (exist.Count == 0)
+                    {
+                        PersonalDetails_SeatingPosition_YesNOAnswer record = new PersonalDetails_SeatingPosition_YesNOAnswer
+                        {
+                            PersonalDetailsID = person.PersonalDetailsID,
+                            SeatingPositionID = inter,
+                            YesNoAnswerID = YesNoAnswer.First()
+                        };
+                        db.PersonalDetails_SeatingPosition_YesNOAnswer.Add(record);
+                        db.SaveChanges();
+                    }
+                }
+
+            }
             ViewBag.SeatingPositions = db.SeatingPositions.ToList();
             var personalDetails_SeatingPosition_YesNOAnswer = db.PersonalDetails_SeatingPosition_YesNOAnswer.Include(p => p.PersonalDetails).Include(p => p.SeatingPosition).Include(p => p.YesNoAnswer);
             return View(personalDetails_SeatingPosition_YesNOAnswer.ToList());

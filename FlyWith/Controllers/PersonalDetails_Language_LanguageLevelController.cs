@@ -29,13 +29,13 @@ namespace FlyWith.Controllers
         }
 
         // GET: PersonalDetails_Language_LanguageLevel/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int? personalDetailsId,int? languageId)
         {
-            if (id == null)
+            if (personalDetailsId == null || languageId == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PersonalDetails_Language_LanguageLevel personalDetails_Language_LanguageLevel = db.PersonalDetails_Language_LanguageLevel.Find(id);
+            PersonalDetails_Language_LanguageLevel personalDetails_Language_LanguageLevel = db.PersonalDetails_Language_LanguageLevel.Find(personalDetailsId,languageId);
             if (personalDetails_Language_LanguageLevel == null)
             {
                 return HttpNotFound();

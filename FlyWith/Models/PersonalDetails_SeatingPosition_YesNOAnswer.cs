@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -25,6 +26,7 @@ namespace FlyWith.Models
             public int YesNoAnswerID { get; set; }
             [ForeignKey("YesNoAnswerID")]
             public virtual YesNoAnswer YesNoAnswer { get; set; }
-       
+
+        
     }
 }

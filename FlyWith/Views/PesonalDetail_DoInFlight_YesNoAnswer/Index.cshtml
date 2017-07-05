@@ -3,31 +3,15 @@
 @{
     ViewBag.Title = "Index";
 }
+<link rel="stylesheet" href="~/Content/main1.css" />
 
-<h2>Index</h2>
+<h2>Flight Mood</h2>
 
-
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<br>
 <table class="table">
     @foreach (var item in ViewBag.DoInFlight)
     {
-        <tr>
-            <th>
-                <h2>@Html.Raw(item.Name)</h2>
-            </th>
-        </tr>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.DoInFlight.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.YesNoAnswer.Name)
-            </th>
-            <th></th>
-        </tr>
+       
         foreach (var item1 in Model)
         {
 
@@ -35,25 +19,32 @@
             {
 
                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item1.DoInFlight.Name)
+                    <td style="vertical-align: baseline;"width="30%">
+                        <h5>@Html.Raw(item.Name)</h5>
                     </td>
+                   
                     <td>
                         @Html.DisplayFor(modelItem => item1.YesNoAnswer.Name)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { PersonalDetailsID = item1.PersonalDetailsID, DoInFlightID = item1.DoInFlightID }) |
-                        @Html.ActionLink("Details", "Details", new { PersonalDetailsID = item1.PersonalDetailsID, DoInFlightID = item1.DoInFlightID }) |
-                        @Html.ActionLink("Delete", "Delete", new { PersonalDetailsID = item1.PersonalDetailsID, DoInFlightID = item1.DoInFlightID })
+                        @Html.ActionLink("Edit", "Edit", new { PersonalDetailsID = item1.PersonalDetailsID, DoInFlightID = item1.DoInFlightID }) 
+                       
                     </td>
                 </tr>
 
             }
         }
-        <tr></tr>
-        <tr></tr>
+        
     }
 </table>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+
+
+
+
 
 
 
